@@ -1,0 +1,346 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  1 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  int18\
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int n;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1095 \u1080 \u1089 \u1083 \u1086  \u1073 \u1086 \u1083 \u1100 \u1096 \u1077  999: ";\
+    cin >> n;\
+    int thousands = (n / 1000) % 10;\
+    cout << "\uc0\u1062 \u1080 \u1092 \u1088 \u1072 , \u1089 \u1086 \u1086 \u1090 \u1074 \u1077 \u1090 \u1089 \u1090 \u1074 \u1091 \u1102 \u1097 \u1072 \u1103  \u1088 \u1072 \u1079 \u1088 \u1103 \u1076 \u1091  \u1090 \u1099 \u1089 \u1103 \u1095 : " << thousands << endl;\
+    return 0;\
+\}\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  2 \u1087 \u1088 \u1086 \u1076 \u1074 \u1080 \u1085 \u1091 \u1090 \u1099 \u1081  \u8470 13\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 #include <iostream>\
+#include <cmath>\
+using namespace std;\
+\
+int main() \
+\{\
+    double alpha, a;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1091 \u1075 \u1086 \u1083  \u1085 \u1072 \u1082 \u1083 \u1086 \u1085 \u1072  \u1087 \u1083 \u1086 \u1089 \u1082 \u1086 \u1089 \u1090 \u1080  (\u1074  \u1075 \u1088 \u1072 \u1076 \u1091 \u1089 \u1072 \u1093 ): ";\
+    cin >> alpha;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1091 \u1089 \u1082 \u1086 \u1088 \u1077 \u1085 \u1080 \u1077  \u1090 \u1077 \u1083 \u1072 : ";\
+    cin >> a;\
+\
+    double g = 9.81; // \uc0\u1091 \u1089 \u1082 \u1086 \u1088 \u1077 \u1085 \u1080 \u1077  \u1089 \u1074 \u1086 \u1073 \u1086 \u1076 \u1085 \u1086 \u1075 \u1086  \u1087 \u1072 \u1076 \u1077 \u1085 \u1080 \u1103 \
+    double sin_alpha = sin(alpha * M_PI / 180); // \uc0\u1087 \u1077 \u1088 \u1077 \u1074 \u1086 \u1076 \u1080 \u1084  \u1075 \u1088 \u1072 \u1076 \u1091 \u1089 \u1099  \u1074  \u1088 \u1072 \u1076 \u1080 \u1072 \u1085 \u1099 \
+    double cos_alpha = cos(alpha * M_PI / 180);\
+    double u = (g * sin_alpha - a) / (g * cos_alpha);\
+\
+    cout << "\uc0\u1050 \u1086 \u1101 \u1092 \u1092 \u1080 \u1094 \u1080 \u1077 \u1085 \u1090  \u1090 \u1088 \u1077 \u1085 \u1080 \u1103 : " << u << endl;\
+\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 //\uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.39\u1072 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 #include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int sum = 0;\
+    for (int i = 1; i <= 1000; i++) \{\
+        sum += i;\
+    \}\
+    double avg = (double)sum / 1000;\
+    cout << "\uc0\u1057 \u1088 \u1077 \u1076 \u1085 \u1077 \u1077  \u1072 \u1088 \u1080 \u1092 \u1084 \u1077 \u1090 \u1080 \u1095 \u1077 \u1089 \u1082 \u1086 \u1077 : " << avg << endl;\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 //\uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.29\u1073 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 #include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int b;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  b (b >= 100): ";\
+    cin >> b;\
+    int sum = 0;\
+    for (int i = 100; i <= b; i++) \{\
+        sum += i;\
+    \}\
+    double avg = (double)sum / (b - 99);\
+    cout << "\uc0\u1057 \u1088 \u1077 \u1076 \u1085 \u1077 \u1077  \u1072 \u1088 \u1080 \u1092 \u1084 \u1077 \u1090 \u1080 \u1095 \u1077 \u1089 \u1082 \u1086 \u1077 : " << avg << endl;\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.29\u1074 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 #include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int a;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  a (a <= 200): ";\
+    cin >> a;\
+    int sum = 0;\
+    for (int i = a; i <= 200; i++) \{\
+        sum += i;\
+    \}\
+    double avg = (double)sum / (201 - a);\
+    cout << "\uc0\u1057 \u1088 \u1077 \u1076 \u1085 \u1077 \u1077  \u1072 \u1088 \u1080 \u1092 \u1084 \u1077 \u1090 \u1080 \u1095 \u1077 \u1089 \u1082 \u1086 \u1077 : " << avg << endl;\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.29\u1075 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 #include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int a, b;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  a (a \u8804  b): ";\
+    cin >> a;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  b: ";\
+    cin >> b;\
+    int sum = 0;\
+    for (int i = a; i <= b; i++) \{\
+        sum += i;\
+    \}\
+    double avg = (double)sum / (b - a + 1);\
+    cout << "\uc0\u1057 \u1088 \u1077 \u1076 \u1085 \u1077 \u1077  \u1072 \u1088 \u1080 \u1092 \u1084 \u1077 \u1090 \u1080 \u1095 \u1077 \u1089 \u1082 \u1086 \u1077 : " << avg << endl;\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.30\u1072 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 #include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int sum = 0;\
+    for (int i = 20; i <= 40; i++) \{\
+        sum += i * i * i;\
+    \}\
+    cout << "\uc0\u1057 \u1091 \u1084 \u1084 \u1072  \u1082 \u1091 \u1073 \u1086 \u1074  \u1074 \u1089 \u1077 \u1093  \u1094 \u1077 \u1083 \u1099 \u1093  \u1095 \u1080 \u1089 \u1077 \u1083  \u1086 \u1090  20 \u1076 \u1086  40: " << sum << endl;\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.30\u1073 
+\f0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 #include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int a, sum = 0;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  a (0 <= a <= 50): ";\
+    cin >> a;\
+    for (int i = a; i <= 50; i++) \{\
+        sum += i * i;\
+    \}\
+    cout << "\uc0\u1057 \u1091 \u1084 \u1084 \u1072  \u1082 \u1074 \u1072 \u1076 \u1088 \u1072 \u1090 \u1086 \u1074  \u1074 \u1089 \u1077 \u1093  \u1094 \u1077 \u1083 \u1099 \u1093  \u1095 \u1080 \u1089 \u1077 \u1083  \u1086 \u1090  " << a << " \u1076 \u1086  50: " << sum << endl;\
+    return 0;\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 // \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.30\u1074 \
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int n, sum = 0;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  n (1 <= n <= 100): ";\
+    cin >> n;\
+    for (int i = 1; i <= n; i++) \{\
+        sum += i * i;\
+    \}\
+    cout << "\uc0\u1057 \u1091 \u1084 \u1084 \u1072  \u1082 \u1074 \u1072 \u1076 \u1088 \u1072 \u1090 \u1086 \u1074  \u1074 \u1089 \u1077 \u1093  \u1094 \u1077 \u1083 \u1099 \u1093  \u1095 \u1080 \u1089 \u1077 \u1083  \u1086 \u1090  1 \u1076 \u1086  " << n << ": " << sum << endl;\
+    return 0;\
+\}\
+\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.30\u1075 \
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int a, b, sum = 0;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  a: ";\
+    cin >> a;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  b (b >= a): ";\
+    cin >> b;\
+    for (int i = a; i <= b; i++) \{\
+        sum += i * i;\
+    \}\
+    cout << "\uc0\u1057 \u1091 \u1084 \u1084 \u1072  \u1082 \u1074 \u1072 \u1076 \u1088 \u1072 \u1090 \u1086 \u1074  \u1074 \u1089 \u1077 \u1093  \u1094 \u1077 \u1083 \u1099 \u1093  \u1095 \u1080 \u1089 \u1077 \u1083  \u1086 \u1090  " << a << " \u1076 \u1086  " << b << ": " << sum << endl;\
+    return 0;\
+\}\
+\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5.36\
+#include <iostream>\
+#include <cmath>\
+using namespace std;\
+\
+int main() \{\
+    int x = 2;\
+    double sum = x;\
+    for (int i = 3; i <= 11; i += 2) \{\
+        sum += pow(x, i) / i;\
+    \}\
+    cout << "\uc0\u1057 \u1091 \u1084 \u1084 \u1072  \u1074 \u1099 \u1088 \u1072 \u1078 \u1077 \u1085 \u1080 \u1103  x+((x^3)/3)+((x^5)/5)+...+((x^11)/11) \u1087 \u1088 \u1080  x=" << x << ": " << sum << endl;\
+    return 0;\
+\}\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  while19\
+cpp\
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int N, reversed = 0;\
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1094 \u1077 \u1083 \u1086 \u1077  \u1095 \u1080 \u1089 \u1083 \u1086  N: ";\
+    cin >> N;\
+    while (N > 0) \{\
+        reversed = reversed * 10 + N % 10;\
+        N /= 10;\
+    \}\
+    cout << "\uc0\u1063 \u1080 \u1089 \u1083 \u1086 , \u1087 \u1086 \u1083 \u1091 \u1095 \u1077 \u1085 \u1085 \u1086 \u1077  \u1087 \u1088 \u1080  \u1087 \u1088 \u1086 \u1095 \u1090 \u1077 \u1085 \u1080 \u1080  \u1095 \u1080 \u1089 \u1083 \u1072  N \u1089 \u1087 \u1088 \u1072 \u1074 \u1072  \u1085 \u1072 \u1083 \u1077 \u1074 \u1086 : " << reversed << endl;\
+    return 0;\
+\}\
+\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  \u1085 \u1086 \u1084 \u1077 \u1088  3 \u1087 \u1088 \u1086 \u1076 \u1074 \u1080 \u1085 \u1091 \u1090 \u1099 \u1081  \u1085 \u1086 \u1084 \u1077 \u1088  5\
+#include <iostream>\
+#include <cmath>\
+using namespace std;\
+\
+int main() \{\
+    double x;\
+    const int N = 10; // \uc0\u1075 \u1088 \u1072 \u1085 \u1080 \u1094 \u1072  \u1088 \u1103 \u1076 \u1072 \
+    cout << "\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  x (-1 < x < 1): ";\
+    cin >> x;\
+    double sum = 0.0;\
+    double term = x;\
+    for (int n = 1; n <= N; n++) \{\
+        sum += term;\
+        term *= -x * n / (n + 1);\
+    \}\
+    cout << "ln(1 + " << x << ") = " << sum << endl;\
+    return 0;\
+\}\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  4 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  8.27\
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    for (int i = 1; i <= 300; i++) \{\
+        int count = 0;\
+        for (int j = 1; j <= i; j++) \{\
+            if (i % j == 0) \{\
+                count++;\
+            \}\
+        \}\
+        if (count == 5) \{\
+            cout << i << " ";\
+        \}\
+    \}\
+    cout << endl;\
+    return 0;\
+\}\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  4 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  8.28\
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    for (int i = 200; i <= 500; i++) \{\
+        int count = 0;\
+        for (int j = 1; j <= i; j++) \{\
+            if (i % j == 0) \{\
+                count++;\
+            \}\
+        \}\
+        if (count == 6) \{\
+            cout << i << " ";\
+        \}\
+    \}\
+    cout << endl;\
+    return 0;\
+\}\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  4 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  8.29\
+cpp\
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int a, b, k;\
+    cout << "Enter a, b, k: ";\
+    cin >> a >> b >> k;\
+    for (int i = a; i <= b; i++) \{\
+        int count = 0;\
+        for (int j = 1; j <= i; j++) \{\
+            if (i % j == 0) \{\
+                count++;\
+            \}\
+        \}\
+        if (count == k) \{\
+            cout << i << " ";\
+        \}\
+    \}\
+    cout << endl;\
+    return 0;\
+\}\
+\
+// \uc0\u1089 \u1072 \u1084 \u1086 \u1089 \u1090 \u1086 \u1103 \u1090 \u1077 \u1083 \u1100 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  4 \u1073 \u1072 \u1079 \u1086 \u1074 \u1099 \u1081  \u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  8.30\u1072 \
+#include <iostream>\
+using namespace std;\
+\
+int main() \{\
+    int a, b;\
+    cout << "Enter a and b: ";\
+    cin >> a >> b;\
+    int max_num = a;\
+    int max_divisors = 1;\
+    for (int i = a; i <= b; i++) \{\
+        int count = 0;\
+        for (int j = 1; j <= i; j++) \{\
+            if (i % j == 0) \{\
+                count++;\
+            \}\
+        \}\
+        if (count > max_divisors) \{\
+            max_divisors = count;\
+            max_num = i;\
+        \}\
+    \}\
+    cout << "Number with maximum divisors: " << max_num << endl;\
+    return 0;\
+\}\
+}

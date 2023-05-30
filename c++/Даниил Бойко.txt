@@ -1,0 +1,458 @@
+Сам. раб. 1 базовый
+№41
+ж)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите число a: ";
+    cin >> a;
+
+    double a2 = a * a;
+    double a4 = a2 * a2;
+    double a8 = a4 * a4;
+    double a12 = a8 * a4;
+    double a13 = a12 * a;
+
+    cout << "a^13 = " << a13 << endl;
+
+    return 0;
+}
+з)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cin >> a;
+
+    double b = a * a;
+    double c = b * b;
+    double d = c * c;
+    double e = d * c;
+    double f = e * b;
+
+    cout << f << endl;
+
+    return 0;
+}
+и)
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите число a: ";
+    cin >> a;
+
+    double a2 = a * a;
+    double a4 = a2 * a2;
+    double a8 = a4 * a4;
+    double a16 = a8 * a8;
+    double a20 = a16 * a4;
+    double a21 = a20 * a;
+
+    cout << "a^21 = " << a21 << endl;
+
+    return 0;
+}
+к)
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+    double a14 = a * a * a * a * a * a * a * a * a * a * a * a * a * a;
+    double a28 = a14 * a14;
+    cout << "a^28 = " << a28 << endl;
+    return 0;
+}
+Сам. раб. 1 прод.
+№19
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double N, t, G;
+    cout << "Введите начальное количество ядер N: ";
+    cin >> N;
+    cout << "Введите период полураспада Г: ";
+    cin >> G;
+    cout << "Введите время t: ";
+    cin >> t;
+
+    double D = N * (1 - exp(-t * log(2) / G));
+    cout << "Число распавшихся ядер: " << D << endl;
+
+    char choice;
+    cout << "Вычислить значение D в процентном отношении к начальному количеству ядер N? (y/n): ";
+    cin >> choice;
+
+    if (choice == 'y' || choice == 'Y') {
+        double percent = D / N * 100;
+        cout << "Значение D в процентах: " << percent << "%" << endl;
+    }
+
+    return 0;
+}
+Сам. раб. 2
+№IF21
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+
+    if (x == 0 && y == 0) {
+        cout << 0 << endl;
+    } else if (x == 0 || y == 0) {
+        cout << (x == 0 ? 1 : 2) << endl;
+    } else {
+        cout << 3 << endl;
+    }
+
+    return 0;
+}
+№IF22
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+
+    if (x == 0 && y == 0) {
+        cout << 0 << endl;
+    } else if (x == 0 || y == 0) {
+        cout << (x == 0 ? 1 : 2) << endl;
+    } else {
+        cout << 3 << endl;
+    }
+
+    return 0;
+}
+№IF23
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+
+    if (x == 0 && y == 0) {
+        cout << 0 << endl;
+    } else if (x == 0 || y == 0) {
+        cout << (x == 0 ? 1 : 2) << endl;
+    } else {
+        cout << 3 << endl;
+    }
+
+    return 0;
+}
+Сам. раб. 3 баз.
+№5.56 (а и б в одном)
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int sum_abs = 0;
+    int prod_abs = 1;
+    for (int i = 0; i < n; i++) {
+        int a;
+        cin >> a;
+        sum_abs += abs(a);
+        prod_abs *= abs(a);
+    }
+    cout << sum_abs << endl;
+    cout << prod_abs << endl;
+    return 0;
+}
+№W13
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int A;
+    cout << "Введите число A (>1): ";
+    cin >> A;
+
+    int K = 1;
+    double sum = 1.0; // начальное значение суммы
+    while (sum <= A) {
+        K++;
+        sum += 1.0 / K;
+    }
+
+    cout << "Наименьшее число K: " << K << endl;
+    cout << "Сумма 1 + 1/2 + ... + 1/K: " << sum << endl;
+
+    return 0;
+}
+Сам. раб. 3 прод.
+№11
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int A;
+    cout << "Введите число A (>1): ";
+    cin >> A;
+
+    int K = 1;
+    double sum = 1.0; // начальное значение суммы
+    while (sum <= A) {
+        K++;
+        sum += 1.0 / K;
+    }
+
+    cout << "Наименьшее число K: " << K << endl;
+    cout << "Сумма 1 + 1/2 + ... + 1/K: " << sum << endl;
+
+    return 0;
+}
+Сам. раб. 4 баз.
+№2.12
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    double arr[12];
+    std::cout << "Введите 12 элементов массива:\n";
+    for (int i = 0; i < 12; i++) {
+        std::cin >> arr[i];
+    }
+
+    std::sort(arr, arr + 12, std::greater<double>());
+
+    std::cout << "Массив в порядке убывания:\n";
+    for (int i = 0; i < 12; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << "\n";
+
+    double sum = arr[0] + arr[11];
+    std::cout << "Сумма максимального и минимального элементов: " << sum << "\n";
+
+    return 0;
+}
+№2.13
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main()
+{
+    int arr[15]; // объявление массива на 15 элементов
+    int max_val = INT_MIN; // начальное максимальное значение
+    int min_val = INT_MAX; // начальное минимальное значение
+
+    // Запрос пользователю 15 целочисленных элементов массива
+    cout << "Введите 15 целочисленных элементов массива:" << endl;
+    for (int i = 0; i < 15; i++) {
+        cin >> arr[i];
+
+        // Обновление максимального и минимального значения
+        if (arr[i] > max_val) {
+            max_val = arr[i];
+        }
+        if (arr[i] < min_val) {
+            min_val = arr[i];
+        }
+    }
+
+    // Вычисление суммы и разности максимального и минимального значений
+    int sum = max_val + min_val;
+    int diff = max_val - min_val;
+
+    // Вывод результата
+    cout << "Сумма максимального и минимального значений: " << sum << endl;
+    cout << "Разность максимального и минимального значений: " << diff << endl;
+
+    return 0;
+}
+№2.14
+#include <iostream>
+using namespace std;
+
+const int arrSize = 17; // Размер массива
+
+int main() 
+{
+    int arr[arrSize]; // Объявление массива
+    int sum = 0; // Переменная для хранения суммы нечетных элементов
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        if (arr[i] % 3 == 0) { // Если элемент кратен 3
+            for (int j = 0; j < arrSize; j++) { // Находим сумму нечетных элементов
+                if (arr[j] % 2 != 0) {
+                    sum += arr[j];
+                }
+            }
+            arr[i] = sum; // Заменяем элемент
+        }
+        sum = 0; // Обнуляем счетчик суммы нечетных элементов для следующей итерации
+    }
+
+    // Вывод измененного массива на экран
+    cout << "\nИзмененный массив:\n";
+    for (int i = 0; i < arrSize; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+№2.15
+#include <iostream>
+using namespace std;
+
+const int arrSize = 5; // Размер массива
+
+int main() 
+{
+    double arr[arrSize]; // Объявление массива
+    double sum = 0; // Переменная для хранения суммы элементов массива
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        sum += arr[i]; // Добавляем текущий элемент к общей сумме
+    }
+
+    double mean = sum / arrSize; // Вычисляем среднее значение
+
+    // Вывод результатов на экран
+    cout << "Сумма элементов массива: " << sum << endl;
+    cout << "Среднее значение: " << mean << endl;
+
+    return 0;
+}
+Сам. раб. 4 прод.
+№11
+#include <iostream>
+using namespace std;
+
+const int arrSize = 5; // Размер массива
+
+int main() 
+{
+    double arr[arrSize]; // Объявление массива
+    double sum = 0; // Переменная для хранения суммы элементов массива
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        sum += arr[i]; // Добавляем текущий элемент к общей сумме
+    }
+
+    double mean = sum / arrSize; // Вычисляем среднее значение
+
+    // Вывод результатов на экран
+    cout << "Сумма элементов массива: " << sum << endl;
+    cout << "Среднее значение: " << mean << endl;
+
+    return 0;
+}
+Сам. раб. 5 прод.
+#include <iostream>
+#include <cmath> // для использования функции acos()
+using namespace std;
+
+const int vecSize = 3; // Размерность вектора (количество компонент)
+
+double dotProduct(double vec1[], double vec2[]);
+double vectorLength(double vec[]);
+double angleBetweenVectors(double vec1[], double vec2[]);
+
+int main() 
+{
+    double vector1[vecSize], vector2[vecSize];
+
+    // Ввод элементов первого вектора
+    cout << "Введите элементы первого вектора:\n";
+    for (int i = 0; i < vecSize; i++) {
+        cout << "Введите элемент " << i + 1 << ": ";
+        cin >> vector1[i];
+    }
+
+    // Ввод элементов второго вектора
+    cout << "\nВведите элементы второго вектора:\n";
+    for (int i = 0; i < vecSize; i++) {
+        cout << "Введите элемент " << i + 1 << ": ";
+        cin >> vector2[i];
+    }
+
+    // Вычисление угла между векторам через скалярное произведение и длины векторов
+    double angle = angleBetweenVectors(vector1, vector2);
+
+    // Вывод результата на экран
+    cout << "\nУгол между векторами: " << angle << " радиан" << endl;
+
+    return 0;
+}
+
+/**
+ * Вычисление скалярного произведения векторов
+ */
+double dotProduct(double vec1[], double vec2[]) {
+    double result = 0;
+    for (int i = 0; i < vecSize; i++) {
+        result += vec1[i] * vec2[i];
+    }
+    return result;
+}
+
+/**
+ * Вычисление длины вектора
+ */
+double vectorLength(double vec[]) {
+    double sum = 0;
+    for (int i = 0; i < vecSize; i++) {
+        sum += vec[i] * vec[i];
+    }
+    return sqrt(sum);
+}
+
+/**
+ * Вычисление угла между двумя векторами
+ */
+double angleBetweenVectors(double vec1[], double vec2[]) {
+    double dotProd = dotProduct(vec1, vec2);
+    double vec1Len = vectorLength(vec1);
+    double vec2Len = vectorLength(vec2);
+    double cosAngle = dotProd / (vec1Len * vec2Len);
+    return acos(cosAngle);
+}
+
+
+
+
+
+
+
+
+

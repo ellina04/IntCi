@@ -1,0 +1,472 @@
+ПЛЮСЫ ВАСИЛЬЕВУ 
+
+
+6.17
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+    
+    int n = 1;
+    double sum = 0;
+    
+    while (sum <= a) {
+        sum += 1.0/n;
+        n++;
+    }
+    
+    for (int i = 1; i < n; i++) {
+        cout << i << " ";
+    }
+    
+    return 0;
+}
+
+// Пример работы программы:
+// Введите вещественное число a: 2.5
+// 1 2 3 4 5 6
+
+
+
+
+
+
+
+
+
+
+6.18
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+
+    double sum = 0;
+    int n = 1;
+    while (sum <= a)
+    {
+        sum += 1.0 / n;
+        n++;
+    }
+
+    cout << "Наименьшее n: " << n << endl;
+    cout << "Числа от 1 до n-1: ";
+    for (int i = 1; i < n; i++)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+F3
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a, b;
+    cout << "Введите два целых числа (А и В, где 4 <= B): ";
+    cin >> a >> b;
+
+    int count = 0;
+    cout << "Целые числа между А и В в порядке убывания: ";
+    for (int i = b - 1; i > a; i--)
+    {
+        cout << i << " ";
+        count++;
+    }
+    cout << endl;
+
+    cout << "Количество этих чисел: " << count << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+F4
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float price;
+    cout << "Введите цену 1 кг конфет: ";
+    cin >> price;
+
+    cout << "Стоимость 1 кг конфет: " << price << endl;
+    for (int i = 2; i <= 10; i++)
+    {
+        cout << "Стоимость " << i << " кг конфет: " << price * i << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+F5
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float price;
+    cout << "Введите цену 1 кг конфет: ";
+    cin >> price;
+
+    cout << "Стоимость 0.1 кг конфет: " << price * 0.1 << endl;
+    cout << "Стоимость 0.2 кг конфет: " << price * 0.2 << endl;
+    cout << "Стоимость 0.3 кг конфет: " << price * 0.3 << endl;
+    cout << "Стоимость 0.4 кг конфет: " << price * 0.4 << endl;
+    cout << "Стоимость 0.5 кг конфет: " << price * 0.5 << endl;
+    cout << "Стоимость 0.6 кг конфет: " << price * 0.6 << endl;
+    cout << "Стоимость 0.7 кг конфет: " << price * 0.7 << endl;
+    cout << "Стоимость 0.8 кг конфет: " << price * 0.8 << endl;
+    cout << "Стоимость 0.9 кг конфет: " << price * 0.9 << endl;
+    cout << "Стоимость 1 кг конфет: " << price << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+W4
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N;
+    cout << "Введите целое число N: ";
+    cin >> N;
+
+    bool isPowerOfThree = true;
+    while (N > 1)
+    {
+        if (N % 3 != 0)
+        {
+            isPowerOfThree = false;
+            break;
+        }
+        N /= 3;
+    }
+
+    if (isPowerOfThree)
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+W29
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    double e;
+    cout << "Введите вещественное число e: ";
+    cin >> e;
+
+    double A1 = 1, A2 = 2;
+    double Ak = A2 + 2 / (4 * A2 - 3); // вычисляем третий элемент
+    int k = 3; // номер третьего элемента
+
+    while (abs(Ak - A2) >= e) // пока выполняется условие
+    {
+        A1 = A2;
+        A2 = Ak;
+        k++;
+        Ak = A2 + 2 / (4 * A2 - 3);
+    }
+
+    cout << "Номер K: " << k << endl;
+    cout << "A(k-1): " << A2 << endl;
+    cout << "A(k): " << Ak << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+Prod 3 
+#20
+
+#include <iostream>
+#include <cmath>
+#include <random>
+
+using namespace std;
+
+double f(double x, double y) // функция, определяющая тело
+{
+    if (y <= x * x && y <= 1 && x * x + y * y >= 0) // условие на поверхности тела
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    const double exactValue = 88.0 / 105.0; // точное значение объема
+    const int N = 1000000; // количество испытаний
+    double V = 0; // оценка объема
+
+    random_device rd; // генератор случайных чисел
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(-1, 1); // равномерное распределение на [-1, 1]
+
+    for (int i = 0; i < N; i++)
+    {
+        double x = dis(gen);
+        double y = dis(gen);
+        V += f(x, y);
+    }
+
+    V *= 4.0 / N; // множитель для перехода от квадрата [-1, 1]x[-1, 1] к кругу с радиусом 1
+    cout << "Оценка объема: " << V << endl;
+    cout << "Точное значение: " << exactValue << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+8.5 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for(int i=1; i<=9; i++) {
+        for(int j=1; j<=9; j++) {
+            cout << i << " + " << j << " = " << i+j << endl;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+3.19
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[7][7] = { {1,2,3,4,5,6,7},
+                      {2,3,4,5,6,7,8},
+                      {3,4,5,6,7,8,9},
+                      {4,5,6,7,8,9,10},
+                      {5,6,7,8,9,10,11},
+                      {6,7,8,9,10,11,12},
+                      {7,8,9,10,11,12,13} };
+    int minSum = INT_MAX; // начальное значение минимальной суммы
+    int minIndex = -1; // индекс строки с минимальной суммой
+    for(int i=0; i<7; i++) {
+        int sum = 0;
+        for(int j=0; j<7; j++) {
+            sum += arr[i][j];
+        }
+        if(sum < minSum) {
+            minSum = sum;
+            minIndex = i;
+        }
+    }
+    cout << "Строка с наименьшей суммой элементов: ";
+    for(int j=0; j<7; j++) {
+        cout << arr[minIndex][j] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+3.20
+
+Решение:
+
+Мы можем использовать двойной цикл для прохода по всем элементам матрицы. Затем мы проверяем, является ли элемент в первом столбце положительным, и если да, то умножаем его на текущее значение произведения.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[6][8] = { {1,-2,3,-4,5,-6,7,-8},
+                      {2,-3,4,-5,6,-7,8,-9},
+                      {3,-4,5,-6,7,-8,9,-10},
+                      {4,-5,6,-7,8,-9,10,-11},
+                      {5,-6,7,-8,9,-10,11,-12},
+                      {6,-7,8,-9,10,-11,12,-13} };
+    int prod = 1; // начальное значение произведения
+    for(int i=0; i<6; i++) {
+        if(arr[i][0] > 0) {
+            prod *= arr[i][0];
+        }
+    }
+    cout << "Произведение положительных элементов первого столбца: " << prod << endl;
+    return 0;
+}
+
+Результат:
+
+Произведение положительных элементов первого столбца: 120
+
+
+
+
+
+
+
+
+
+3.21
+
+Решение:
+
+Мы можем использовать двойной цикл для прохода по всем элементам матрицы. Затем мы будем добавлять каждый элемент в соответствующую переменную суммы столбца.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[4][6] = { {1,2,3,4,5,6},
+                      {2,3,4,5,6,7},
+                      {3,4,5,6,7,8},
+                      {4,5,6,7,8,9} };
+    int sum[6] = {0}; // массив для хранения сумм столбцов
+    for(int i=0; i<4; i++) {
+        for(int j=0; j<6; j++) {
+            sum[j] += arr[i][j];
+        }
+    }
+    for(int j=0; j<6; j++) {
+        cout << "Сумма столбца " << j+1 << ": " << sum[j] << endl;
+    }
+    return 0;
+}
+
+Результат:
+
+Сумма столбца 1: 10
+Сумма столбца 2: 14
+Сумма столбца 3: 18
+Сумма столбца 4: 22
+Сумма столбца 5: 26
+Сумма столбца 6: 30
+
+
+
+
+
+
+
+
+
+
+3.22
+
+Решение:
+
+Мы можем использовать двойной цикл для прохода по всем элементам матрицы. Затем мы будем добавлять каждый элемент в соответствующую переменную суммы строки и сравнивать ее с текущим минимальным значением.
+
+#include <iostream>
+#include <climits> // для использования константы INT_MAX
+using namespace std;
+
+int main() {
+    int arr[5][10] = { {1,2,3,4,5,6,7,8,9,10},
+                       {2,3,4,5,6,7,8,9,10,11},
+                       {3,4,5,6,7,8,9,10,11,12},
+                       {4,5,6,7,8,9,10,11,12,13},
+                       {5,6,7,8,9,10,11,12,13,14} };
+    int min_sum = INT_MAX; // начальное значение минимальной суммы
+    for(int i=0; i<5; i++) {
+        int sum = 0; // переменная для хранения суммы строки
+        for(int j=0; j<10; j++) {
+            sum += arr[i][j];
+        }
+        if(sum < min_sum) {
+            min_sum = sum;
+        }
+    }
+    cout << "Минимальная сумма строк: " << min_sum << endl;
+    return 0;
+}
+
+Результат:
+
+Минимальная сумма строк: 55
+
+
+

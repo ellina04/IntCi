@@ -1,0 +1,678 @@
+6 задания нет, урок 1
+
+//C12, 2 урок
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const float Pi = 3.14; // объявляем константу Pi
+    int number; // объявляем переменную для номера элемента
+    float value; // объявляем переменную для значения элемента
+
+    cout << "Введите номер элемента (1 - радиус, 2 - диаметр, 3 - длина, 4 - площадь): ";
+    cin >> number;
+
+    cout << "Введите значение элемента: ";
+    cin >> value;
+
+    switch (number) { // в зависимости от номера элемента выводим значения остальных элементов
+        case 1: // если введен радиус
+            cout << "Диаметр:\t" << 2 * value << endl;
+            cout << "Длина:\t\t" << 2 * Pi * value << endl;
+            cout << "Площадь:\t" << Pi * value * value << endl;
+            break;
+        case 2: // если введен диаметр
+            cout << "Радиус:\t\t" << value / 2 << endl;
+            cout << "Длина:\t\t" << Pi * value << endl;
+            cout << "Площадь:\t" << Pi * value * value / 4 << endl;
+            break;
+        case 3: // если введена длина
+            cout << "Радиус:\t\t" << value / (2 * Pi) << endl;
+            cout << "Диаметр:\t" << value / Pi << endl;
+            cout << "Площадь:\t" << Pi * value * value / (4 * Pi * Pi) << endl;
+            break;
+        case 4: // если введена площадь
+            cout << "Радиус:\t\t" << sqrt(value / Pi) << endl;
+            cout << "Диаметр:\t" << sqrt(value / Pi) * 2 << endl;
+            cout << "Длина:\t\t" << sqrt(value / Pi) * 2 * Pi << endl;
+            break;
+        default: // если номер элемента введен не верно
+            cout << "Некорректный номер элемента!" << endl;
+            break;
+    }
+
+    return 0;
+}
+
+//C13, 3 урок
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int num;
+    double value;
+    cout << "Введите номер элемента (1-4): ";
+    cin >> num;
+    cout << "Введите значение: ";
+    cin >> value;
+
+    double a, c, h, S;
+    switch(num) {
+        case 1: 
+            a = value;
+            c = a * sqrt(2);
+            h = c / 2;
+            S = c * h / 2;
+            break;
+        case 2:
+            c = value;
+            a = c / sqrt(2);
+            h = c / 2;
+            S = c * h / 2;
+            break;
+        case 3:
+            h = value;
+            c = h * 2;
+            a = c / sqrt(2);
+            S = c * h / 2;
+            break;
+        case 4:
+            S = value;
+            c = sqrt( (2 * S) / h );
+            h = c / 2;
+            a = c / sqrt(2);
+            break;
+        default:
+            cout << "Неверный номер элемента\n";
+            return 1;
+    }
+    cout << "1. Катет a = " << a << endl;
+    cout << "2. Гипотенуза c = " << c << endl;
+    cout << "3. Высота h = " << h << endl;
+    cout << "4. Площадь S = " << S << endl;
+
+    return 0;
+}
+```
+//C14, 2 урок
+
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main() {
+    int num;
+    double value;
+    cout << "Введите номер элемента: ";
+    cin >> num;
+    cout << "Введите значение элемента: ";
+    cin >> value;
+    double a, R1, R2, S;
+    switch(num) {
+        case 1:
+            a = value;
+            R1 = a * sqrt(3)/6;
+            R2 = 2 * R1;
+            S = a * a * sqrt(3)/4;
+            break;
+        case 2:
+            R1 = value;
+            a = 2 * R1/sqrt(3);
+            R2 = 2 * R1;
+            S = a * a * sqrt(3)/4;
+            break;
+        case 3:
+            R2 = value;
+            R1 = R2/2;
+            a = 2 * R1/sqrt(3);
+            S = a * a * sqrt(3)/4;
+            break;
+        case 4:
+            S = value;
+            a = 2 * sqrt(S/sqrt(3));
+            R1 = a * sqrt(3)/6;
+            R2 = 2*R1;
+            break;
+        default:
+            cout<<"Вы ввели неправильный номер элемента";
+            return 0;
+    }
+    cout << "a = " << a << endl;
+    cout << "R1 = " << R1 << endl;
+    cout << "R2 = " << R2 << endl;
+    cout << "S = " << S << endl;
+    return 0;
+}
+```
+//F21, 3 урок
+```
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int N;
+    double sum = 0, factorial = 1;
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        factorial *= i;
+        sum += 1 / factorial;
+    }
+
+    cout << "Sum: " << sum << endl;
+    cout << "Approximation of e: " << exp(1) << endl;
+
+    return 0;
+}
+```
+//F22, 3 урок
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  double x, sum = 1, factorial = 1; // начальные значения: сумма равна 1, факториал равен 1
+  int n;
+
+  cout << "Введите число X: ";
+  cin >> x;
+
+  cout << "Введите целое число N (> 0): ";
+  cin >> n;
+
+  for(int i = 1; i <= n; i++) {
+    factorial *= i; // вычисляем факториал в цикле
+    
+    double term = 1;
+    for(int j = 1; j <= i; j++) {
+      term *= x; // вычисляем степень x в цикле
+    }
+    
+    term /= factorial; // делим на факториал в конце
+    sum += term; // добавляем текущее слагаемое к сумме
+  }
+
+  cout << "exp(" << x << ") = " << sum << endl;
+
+  return 0;
+}
+```
+//F23, 3 уроки
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double x;
+    int n;
+    cout << "Введите x и n: ";
+    cin >> x >> n;
+    double result = 0;
+    double term = x; // первый член ряда
+    for (int i = 1; i <= n; i++) {
+        result += term;
+        term *= -1 * x * x / (2 * i) / (2 * i + 1); // вычисляем следующий член ряда
+    }
+    cout << "Приближенное значение sin(" << x << ") = " << result << endl;
+    cout << "Проверка: sin(" << x << ") = " << sin(x) << endl;
+    return 0;
+}
+```
+//F24, 3 урок
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x;
+    int n;
+    cout << "Enter X: ";
+    cin >> x;
+    cout << "Enter N: ";
+    cin >> n;
+    
+    double result = 1.0;
+    double term = 1.0;
+    for (int i = 1; i <= n; i++) {
+        term *= -x * x / (2.0 * i * (2.0 * i - 1.0));
+        result += term;
+    }
+    
+    cout << "cos(" << x << ") = " << result << endl;
+
+    return 0;
+}
+```
+//F25, 3 урок
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double x;
+    int n;
+    cout << "Введите вещественное число X (|X| < 1): ";
+    cin >> x;
+    cout << "Введите целое число N (> 0): ";
+    cin >> n;
+
+    double sum = 0;
+    double term = x;
+    for (int i = 1; i <= n; i++) {
+        sum += term;
+        term *= -x * (i + 1.0) / (i + 1.0);
+    }
+
+    double approx_ln = log(1 + x);
+    cout << "Приближенное значение ln(1 + X) = " << sum << endl;
+    cout << "Точное значение ln(1 + X) = " << approx_ln << endl;
+
+    return 0;
+}
+```
+
+//F26, 3 урок
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    double x;
+    int n;
+
+    cout << "Введите x (|x| < 1): ";
+    cin >> x;
+
+    cout << "Введите n (> 0): ";
+    cin >> n;
+
+    double sum = 0;
+    double sign = 1;
+    double power = x;
+
+    for (int i = 1; i <= n; i++)
+    {
+        sum += sign * power / (2 * i - 1);
+        power *= -1 * x * x;
+        sign *= -1;
+    }
+
+    double arctg = atan(x);
+
+    cout << "Значение выражения: " << sum << endl;
+    cout << "Значение arctg(x): " << arctg << endl;
+
+    return 0;
+}
+```
+
+//W1, 3 урок
+
+#include <iostream>
+
+int main() {
+    int A, B;
+    std::cout << "Enter A and B (A > B): ";
+    std::cin >> A >> B;
+    int num_segments = A / B;  // количество отрезков длины B на отрезке длины A
+    int remaining_length = A - num_segments * B;  // длина незанятой части отрезка A
+    std::cout << "Length of remaining part: " << remaining_length << std::endl;
+    return 0;
+}
+```
+//W26, 3 урок
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  
+  int n, prev = 0, curr = 1, next = 1;
+
+  cout << "Введите число N (N > 1): ";
+  cin >> n;
+
+  while (next < n) {
+    prev = curr;
+    curr = next;
+    next = prev + curr;
+  }
+
+  cout << "FK-1 = " << prev << endl;
+  cout << "FK+1 = " << next << endl;
+
+  return 0;
+}
+```
+
+//4.1, 4 урок
+
+#include <iostream>
+
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 4;
+
+void sortRow(int row[], int start, int end) {
+    for(int i = start; i < end; i++) {
+        for(int j = start; j < end - 1; j++) {
+            if(row[j] < row[j+1]) {
+                int temp = row[j];
+                row[j] = row[j+1];
+                row[j+1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int matrix[ROWS][COLS];
+
+    // Ввод матрицы
+    for(int i = 0; i < ROWS; i++) {
+        cout << "Введите " << COLS << " элементов " << i+1 << "-й строки матрицы:" << endl;
+        for(int j = 0; j < COLS; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    // Сортировка строк
+    for(int i = 0; i < ROWS; i++) {
+        int secondNegativeIndex = -1;
+        for(int j = 0; j < COLS; j++) {
+            if(matrix[i][j] < 0) {
+                if(secondNegativeIndex == -1) {
+                    secondNegativeIndex = j;
+                } else {
+                    sortRow(matrix[i], secondNegativeIndex+1, COLS);
+                    break;
+                }
+            }
+        }
+    }
+
+    // Вывод матрицы
+    cout << "Итоговая матрица:" << endl;
+    for(int i = 0; i < ROWS; i++) {
+        for(int j = 0; j < COLS; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+//4.2, урок 4
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main() {
+  const int ROWS = 4;
+  const int COLS = 4;
+
+  int arr[ROWS][COLS];
+
+  // заполняем массив случайным образом из 0 и 1
+  srand(time(nullptr)); // инициализируем генератор случайных чисел
+  for (int i = 0; i < ROWS; i++) {
+    for (int j = 0; j < COLS; j++) {
+      arr[i][j] = rand() % 2;
+    }
+  }
+
+  // выводим массив в требуемом формате
+  for (int i = 0; i < ROWS; i++) {
+    for (int j = 0; j < COLS; j++) {
+      cout << arr[i][j] << " ";
+    }
+    cout << endl; // переходим на новую строку
+  }
+
+  return 0;
+}
+
+//4.3, урок 4
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    const int rows = 4;
+    const int cols = 4;
+    int array[rows][cols];
+
+    int num = 1;
+    int startRow = 0, endRow = rows - 1, startCol = 0, endCol = cols - 1;
+
+    while (num <= rows * cols) {
+        for (int i = startCol; i <= endCol; i++) {
+            array[startRow][i] = num++;
+        }
+
+        for (int i = startRow + 1; i <= endRow; i++) {
+            array[i][endCol] = num++;
+        }
+
+        for (int i = endCol - 1; i >= startCol; i--) {
+            array[endRow][i] = num++;
+        }
+
+        for (int i = endRow - 1; i >= startRow + 1; i--) {
+            array[i][startCol] = num++;
+        }
+
+        startRow++; endRow--; startCol++; endCol--;
+    }
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%02d ", array[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//4.4, 4 урок
+
+#include <iostream>
+using namespace std;
+
+const int n = 3, m = 4;
+
+void print_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+bool has_duplicates(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] == arr[j]) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+int main() {
+    int A[n][m] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 5},
+        {8, 9, 10, 11}
+    };
+    int B[n];
+    int k = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (has_duplicates(A[i], m)) {
+            B[k++] = i;
+        }
+    }
+
+    cout << "Original array:" << endl;
+    for (int i = 0; i < n; i++) {
+        print_array(A[i], m);
+    }
+
+    cout << "New array:" << endl;
+    for (int i = 0; i < k; i++) {
+        print_array(A[B[i]], m);
+    }
+
+    return 0;
+}
+
+//Задание 20, 4 урок
+
+```
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int n; // количество точек
+    cout << "Введите количество точек: ";
+    cin >> n;
+
+    vector<double> x(n); // массив значений x
+    vector<double> y(n); // массив значений y
+
+    cout << "Введите значения x и y:" << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> x[i] >> y[i];
+    }
+
+    // Находим среднее значение x и y
+    double x_mean = 0, y_mean = 0;
+    for (int i = 0; i < n; i++) {
+        x_mean += x[i];
+        y_mean += y[i];
+    }
+    x_mean /= n;
+    y_mean /= n;
+
+    // Вычисляем параметры a и b
+    double a = 0, b = 0;
+    for (int i = 0; i < n; i++) {
+        a += (x[i] - x_mean) * (y[i] - y_mean);
+        b += (x[i] - x_mean) * (x[i] - x_mean);
+    }
+    a /= b;
+    b = y_mean - a * x_mean;
+
+    // Выводим результаты
+    cout << "Параметры модели: a=" << a << ", b=" << b << endl;
+
+    return 0;
+}
+```
+
+//Задание 191, 5 урок
+
+#include <iostream>
+
+// Функция для вычисления факториала числа n
+int factorial(int n)
+{
+    int result = 1;
+    for (int i = 2; i <= n; i++)
+    {
+        result *= i;
+    }
+    return result;
+}
+
+int main()
+{
+    std::cout << "Таблица факториалов:" << std::endl;
+    std::cout << "n\tn!\n";
+
+    for (int n = 0; n <= 10; n++)
+    {
+        std::cout << n << "\t" << factorial(n) << std::endl;
+    }
+
+    return 0;
+}
+```
+
+//Задание 20, 5 урок
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+// Функция вычисления параметра a
+double computeA(vector<double> x, vector<double> y) {
+    double sumX = 0.0, sumY = 0.0, sumXY = 0.0, sumXX = 0.0;
+    int n = x.size();
+    for (int i = 0; i < n; ++i) {
+        sumX += x[i];
+        sumY += y[i];
+        sumXY += x[i] * y[i];
+        sumXX += x[i] * x[i];
+    }
+    double denom = (n * sumXX) - (sumX * sumX);
+    if (denom == 0) {
+        cerr << "Error: denominator is zero!" << endl;
+        return NAN;
+    }
+    return ((n * sumXY) - (sumX * sumY)) / denom;
+}
+
+// Функция вычисления параметра b
+double computeB(vector<double> x, vector<double> y, double a) {
+    double sumX = 0.0, sumY = 0.0;
+    int n = x.size();
+    for (int i = 0; i < n; ++i) {
+        sumX += x[i];
+        sumY += y[i];
+    }
+    return (sumY - (a * sumX)) / n;
+}
+
+int main() {
+    // Задаем базовые точки (x, y)
+    vector<double> x = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<double> y = {2.0, 3.5, 5.0, 7.0, 10.0};
+
+    // Вычисляем параметры a и b
+    double a = computeA(x, y);
+    double b = computeB(x, y, a);
+
+    // Выводим результаты
+    cout << "Regression model: f(x) = " << a << "x + " << b << "/x" << endl;
+
+    return 0;
+}
+```

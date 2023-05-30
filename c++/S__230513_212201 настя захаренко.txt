@@ -1,0 +1,633 @@
+УРОК_2~~~~~~~~~~~~~~~~~~~~~
+
+Использовав оператор switch.
+
+Case15.Мастям игральных карт присвоены порядковые номера: 1 ПИКИ, 2- трефы, 3 бубны, 4 червы. Достоинству карт, старших десятки, присвоены номера: 11 - валет, 12 -дама, 13 два целых числа: N - достоинство (6 ≤ N ≤ 14) и М - масть карты король, 14 - туз. Даны (1 ≤ M≤4). Вывести название соответствующей карты вида «шестерка бу- бен>>, <<дама червей», «туз треф» и т. п.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, M;
+    cout << "Введите достоинство карты (от 6 до 14): ";
+    cin >> N;
+    cout << "Введите масть карты (1 - пики, 2 - трефы, 3 - бубны, 4 - червы): ";
+    cin >> M;
+
+    switch (N) {
+        case 6:
+            cout << "шестерка ";
+            break;
+        case 7:
+            cout << "семерка ";
+            break;
+        case 8:
+            cout << "восьмерка ";
+            break;
+        case 9:
+            cout << "девятка ";
+            break;
+        case 10:
+            cout << "десятка ";
+            break;
+        case 11:
+            cout << "валет ";
+            break;
+        case 12:
+            cout << "дама ";
+            break;
+        case 13:
+            cout << "король ";
+            break;
+        case 14:
+            cout << "туз ";
+            break;
+        default:
+            cout << "Достоинство карты должно быть от 6 до 14";
+            return 0;
+    }
+
+    switch (M) {
+        case 1:
+            cout << "пик";
+            break;
+        case 2:
+            cout << "треф";
+            break;
+        case 3:
+            cout << "бубен";
+            break;
+        case 4:
+            cout << "червей";
+            break;
+        default:
+            cout << "Масть карты должна быть от 1 до 4";
+    }
+
+    return 0;
+}
+
+Case16. Дано целое число в диапазоне 20-69, определяющее возраст (в годах). Вывести строку-описание указанного возраста, обеспечив правильное со- гласование числа со словом «год», например: 20 - «двадцать лет», 32 - «тридцать два года», 41- - «сорок один год».
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Введите возраст (от 20 до 69): ";
+    cin >> age;
+
+    int lastDigit = age % 10; // последняя цифра возраста
+    int secondLastDigit = age / 10 % 10; // предпоследняя цифра возраста
+
+    switch (secondLastDigit) {
+        case 2:
+            cout << "двадцать ";
+            break;
+        case 3:
+            cout << "тридцать ";
+            break;
+        case 4:
+            cout << "сорок ";
+            break;
+        case 5:
+            cout << "пятьдесят ";
+            break;
+        case 6:
+            cout << "шестьдесят ";
+            break;
+    }
+
+    switch (lastDigit) {
+        case 1:
+            cout << "один год";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            cout << lastDigit << " года";
+            break;
+        default:
+            cout << lastDigit << " лет";
+    }
+
+    return 0;
+}
+
+Case17. Дано целое число в диапазоне 10-40, определяющее количество учеб- ных заданий по некоторой теме. Вывести строку-описание указанного ко- личества заданий, обеспечив правильное согласование числа со словами «учебное задание», например: 18 «восемнадцать учебных заданий» 23 <<двадцать три учебных задания», 31 - «тридцать одно учебное за- Дание».
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Введите количество учебных заданий (от 10 до 40): ";
+    cin >> num;
+
+    int lastDigit = num % 10; // последняя цифра количества заданий
+    int secondLastDigit = num / 10 % 10; // предпоследняя цифра количества заданий
+
+    switch (secondLastDigit) {
+        case 1:
+            cout << num << " учебных заданий";
+            break;
+        case 2:
+            cout << "двадцать ";
+            break;
+        case 3:
+            cout << "тридцать ";
+            break;
+        case 4:
+            cout << "сорок ";
+            break;
+    }
+
+    switch (lastDigit) {
+        case 1:
+            cout << "одно учебное задание";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            cout << lastDigit << " учебных задания";
+            break;
+        default:
+            cout << lastDigit << " учебных заданий";
+    }
+
+    return 0;
+}
+
+УРОК_3~~~~~~~~~~~~~~~~~~~~~
+
+For27. Дано вещественное число X (|X| < 1) и целое число N (> 0). Найти значение выражения X + 1*X3/(2*3) + 1*3*X5/(2*4*5) + … + 1*3*…*(2*N-1)*X2*N+1/(2*4*…*(2*N)*(2*N+1)).
+
+# include 
+# include 
+# include 
+# include 
+# include 
+ 
+using namespace std;
+ 
+int main ()
+{
+  SetConsoleCP(1251);
+  SetConsoleOutputCP(1251);
+ 
+  double X;
+  cout << "Введите вещественное число X (|X|<1): ";   cin >> X;
+  int N;
+  cout << "Введите целое число N (>0): ";
+  cin >> N;
+  double answer;
+  double z, h; // z - значенатель ; h - числитель 
+  double stepen;
+  z = stepen =1;
+  h = X;
+  answer = X;
+  for(int i=1; i <= N ;i++) {
+    h = h * X * X;              // x^3 / x^5 /x^7   высчитывается степень числа X в числителе
+    stepen = stepen* (2*i-1);   // stepen= 1 / 3 / 15 высчитывается число, на которое умножается h
+    z = z * (i*2+1)*(i*2);      // 6  / 40            высчитывается знаменатель
+    answer += (stepen * h) / z; // (1*x^3)/6
+    z = z / (i*2+1);            // 2   / 8
+  }
+  cout << "answer = " << answer << endl;
+  double y; // переменная для значения arcsin в точке X
+  y = asin(X);
+  cout << "arcsin(X)= " << y << endl;
+ 
+  system ("pause");
+  return 0;
+}
+
+For28. Дано вещественное число X (|X| < 1) и целое число N (> 0). Найти значение выражения 1 + X/2 — 1*X2/(2*4) + 1*3*X3/(2*4*6) -… + (-1)N-1*1*3*…*(2*N-3)*XN/(2*4*…*(2*N)). Полученное число является приближенным значением функции √1 + X .
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    float x;
+    cout<<"X:";
+    cin>>x;
+ 
+    int n;
+    cout<<"N:";
+    cin>>n;
+ 
+    float temp1 = 1, temp2 = 1, rez = 1, pow = 1;
+    int i;
+    for (i = 1; i < n; ++i) {
+        temp1 *= 2 * i - 3;
+        temp2 *= 2 * i;
+        pow *= (-1) * x;
+        rez += temp1 * pow / temp2;
+    }
+    cout<< rez;
+}
+
+For29. Дано целое число N (> 1) и две вещественные точки на числовой оси: A, B (A < B). Отрезок [A, B] разбит на N равных отрезков. Вывести H — длину каждого отрезка, а также набор точек A, A + H, A + 2*H, A + 3*H,…, B, образующий разбиение отрезка [A, B].
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    float a;
+    cout << "A:";
+    cin >> a;
+ 
+    float b;
+    cout << "B:";
+    cin >> b;
+ 
+    float h = (b - a) / n;
+    cout << h;
+ 
+    int i;
+    for (i = 0; i <= n; ++i) {
+        cout << a + i * h<<" ";
+    }
+}
+
+For30. Дано целое число N (> 14) и две вещественные точки на числовой оси: A, B (A < B). Отрезок [A, B] разбит на N равных отрезков. Вывести H — длину каждого отрезка, а также значения функции F(X) = 1 — sin(X) в точках, разбивающих отрезок [A, B]: F(A), F(A + H), F(A + 2*H),…, F(B).
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    float a;
+    cout << "A:";
+    cin >> a;
+ 
+    float b;
+    cout << "B:";
+    cin >> b;
+ 
+    float h = (b - a) / n;
+    cout<<h<<" ";
+ 
+    int i;
+    for (i = 0; i <= n; ++i) {
+        cout<<1 - sin(a + i * h)<<" ";
+    }
+    return 0;
+}
+
+For31. Дано целое число N (> 0). Последовательность вещественных чисел A_K определяется следующим образом: A0 = 2, AK = 2 + 1/AK-1, K = 1, 2, … . Вывести элементы A1, A2, …, AN.
+
+# include
+# include
+# include
+ 
+using namespace std;
+ 
+int main ()
+ 
+{
+  SetConsoleCP(1251);
+  SetConsoleOutputCP(1251);
+ 
+  int N;
+  cout << "Введите целое число N(>0): ";
+  cin >> N;
+  double A = 2;
+  for (int i = 1; i <= N; ++i) {
+   A = 2+1/A;
+   cout << A << " ";
+  }
+  cout << endl;
+  system ("pause");
+  return 0;
+}
+
+For32. Дано целое число N (> 0). Последовательность вещественных чисел A_K определяется следующим образом: A0 = 1, AK = (AK-1 + 1)/K, K = 1, 2, … . Вывести элементы A1, A2, …, AN.
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    float ai = 1;
+    cout<< ai<<" ";
+    int i;
+    for (i = 1; i <= n; ++i) {
+        cout<< i<<" "<< (ai + 1) / i<<" ";
+        ai = (ai + 1) / i;
+    }
+    return 0;
+}
+
+For40. Даны целые числа A и B (A < B). Вывести все целые числа от A до B включительно; при этом число A должно выводиться 1 раз, число A + 1 должно выводиться 2 раза и т. д.
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int a, b;
+    cout<<"A:";
+    cin>>a;
+    cout << "B:";
+    cin >> b;
+ 
+    int i, i2;
+    for (i = 1; i <= b - a + 1; ++i) {
+        for (i2 = 1; i2 <= i; ++i2)
+            cout << a + i - 1 << " ";
+    }
+ 
+    return 0;
+}
+
+While25. Дано целое число N (> 1). Найти первое число Фибоначчи, большее N. (определение чисел Фибоначчи дано в задании While24).
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    int f1 = 1, f2 = 1, f = 0;
+ 
+    while (f < n + 1) {
+        f = f2 + f1;
+        f2 = f1;
+        f1 = f;
+    }
+    cout << f;
+    return 0;
+}
+
+УРОК_4~~~~~~~~~~~~~~~~~~~~~
+
+4.6Элементы матрицы А сделать с помощью генератора случайных чисел. Сделать новую матрицу В в которой удалить с матрицы A ряд, в котором минимальный элемент среди элементов главной диагонали.
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+const int SIZE = 5; // размер матрицы
+
+int main() {
+    srand(time(NULL)); // инициализация генератора случайных чисел
+    int A[SIZE][SIZE]; // исходная матрица
+    int B[SIZE-1][SIZE]; // новая матрица без одного ряда
+    int min_diag = INT_MAX; // минимальный элемент главной диагонали
+
+    // заполнение исходной матрицы случайными числами
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            A[i][j] = rand() % 10;
+            cout << A[i][j] << " ";
+            if (i == j && A[i][j] < min_diag) {
+                min_diag = A[i][j];
+            }
+        }
+        cout << endl;
+    }
+
+    cout << "Минимальный элемент главной диагонали: " << min_diag << endl;
+
+    int row_to_remove = -1; // номер ряда, который нужно удалить
+    for (int i = 0; i < SIZE; i++) {
+        if (A[i][i] == min_diag) {
+            row_to_remove = i;
+            break;
+        }
+    }
+
+    if (row_to_remove == -1) { // если минимальный элемент не найден
+        cout << "Минимальный элемент главной диагонали не найден." << endl;
+        return 0;
+    }
+
+    cout << "Номер ряда, который нужно удалить: " << row_to_remove << endl;
+
+    // заполнение новой матрицы без удаленного ряда
+    int b_row = 0;
+    for (int i = 0; i < SIZE; i++) {
+        if (i != row_to_remove) {
+            for (int j = 0; j < SIZE; j++) {
+                B[b_row][j] = A[i][j];
+            }
+            b_row++;
+        }
+    }
+
+    cout << "Новая матрица:" << endl;
+    for (int i = 0; i < SIZE-1; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << B[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+4.7Составить программу, которая заполняет квадратную матрицу порядка п натуральными числами 1, 2, 3, ..., n2, записывая их в нее "по спирали"
+против часовой стрелки.
+
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5; // размер матрицы
+
+int main() {
+    int A[SIZE][SIZE]; // исходная матрица
+    int num = 1; // текущее заполняемое число
+
+    // заполнение матрицы по спирали против часовой стрелки
+    for (int k = 0; k < SIZE/2; k++) {
+        // верхняя горизонтальная строка
+        for (int j = k; j < SIZE-k-1; j++) {
+            A[k][j] = num++;
+        }
+        // правая вертикальная строка
+        for (int i = k; i < SIZE-k-1; i++) {
+            A[i][SIZE-k-1] = num++;
+        }
+        // нижняя горизонтальная строка
+        for (int j = SIZE-k-1; j > k; j--) {
+            A[SIZE-k-1][j] = num++;
+        }
+        // левая вертикальная строка
+        for (int i = SIZE-k-1; i > k; i--) {
+            A[i][k] = num++;
+        }
+    }
+
+    // заполнение центрального элемента, если размер матрицы нечетный
+    if (SIZE % 2 == 1) {
+        A[SIZE/2][SIZE/2] = num;
+    }
+
+    // вывод матрицы на экран
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+4.8Составить программу, которая заполняет квадратную матрицу порядка п натуральными числами 1, 2, 3, ..., n2, записывая их в нее "по спирали" по часовой стрелке.
+
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5; // размер матрицы
+
+int main() {
+    int A[SIZE][SIZE]; // исходная матрица
+    int num = 1; // текущее заполняемое число
+
+    // заполнение матрицы по спирали по часовой стрелке
+    for (int k = 0; k < SIZE/2; k++) {
+        // верхняя горизонтальная строка
+        for (int j = k; j < SIZE-k-1; j++) {
+            A[k][j+1] = num++;
+        }
+        // нижняя горизонтальная строка
+        for (int j = SIZE-k-1; j > k; j--) {
+            A[SIZE-k-1][j-1] = num++;
+        }
+        // правая вертикальная строка
+        for (int i = k; i < SIZE-k-1; i++) {
+            A[i+1][SIZE-k-1] = num++;
+        }
+        // левая вертикальная строка
+        for (int i = SIZE-k-1; i > k; i--) {
+            A[i-1][k] = num++;
+        }
+    }
+
+    // заполнение центрального элемента, если размер матрицы нечетный
+    if (SIZE % 2 == 1) {
+        A[SIZE/2][SIZE/2] = num;
+    }
+
+    // вывод матрицы на экран
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+4.9Дан двухмерный целочисленный массив A(M,N). Составить массив В из номеров строк этого массива.
+
+#include <iostream>
+using namespace std;
+
+const int M = 5; // количество строк
+const int N = 4; // количество столбцов
+
+int main() {
+    int A[M][N]; // исходный массив
+    int B[M]; // массив номеров строк
+
+    // заполнение исходного массива
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            A[i][j] = i * N + j;
+        }
+    }
+
+    // заполнение массива номеров строк
+    for (int i = 0; i < M; i++) {
+        B[i] = i;
+    }
+
+    // вывод исходного массива на экран
+    cout << "Исходный массив:" << endl;
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    // вывод массива номеров строк на экран
+    cout << "Массив номеров строк:" << endl;
+    for (int i = 0; i < M; i++) {
+        cout << B[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+УРОК_5~~~~~~~~~~~~~~~~~~~~~
+
+Определить значение = max a, 2b max 2a-b, b, где max x, y максимальное из чисел х, у. Задачу решить двумя способами:
+
+1) не используя функцию max; 
+
+#include <iostream>
+ 
+using namespace std;
+int main()
+{
+    double a, b, z;
+    cin >> a >> b;
+    if (a > (2 * b)){
+        z = a;
+    }
+    else {
+        z = (b * 2);
+    }
+    if ((2 * a - b) > b){
+        z *= (2 * a - b);
+    }
+    else {
+        z *= b;
+    }
+    cout << z << endl;
+    system("pause");
+    return 0;
+}
+
+2) определив и использовав функцию max.
+
+#include <iostream>
+using namespace std;
+double max(double x, double y){
+    if (x > y)
+        return x;
+    else
+        return y;
+}
+int main()
+{
+    double a, b;
+    cin >> a >> b;
+    cout << (max(a, (2 * b)) * max((2 * a - b), b)) << endl;
+    system("pause");
+    return 0;
+}

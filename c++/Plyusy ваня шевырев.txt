@@ -1,0 +1,498 @@
+41(г,д,е) - Самостоятельная работа 1 (базовый)
+г)
+//Самостоятельная работа 1 базовая (г)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+
+    // г) a^8 за три операции
+    double a2 = a * a;
+    double a4 = a2 * a2;
+    double a8 = a4 * a4;
+    cout << "a^8 = " << a8 << endl;
+
+
+    return 0;
+}
+
+------------------------
+д)
+//Самостоятельная работа 1 базовая (д)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+
+    // д) a^9 за четыре операции
+    double a3 = a * a2;
+    double a9 = a3 * a3 * a3;
+    cout << "a^9 = " << a9 << endl;
+
+    return 0;
+}
+
+----------------
+е)
+
+//Самостоятельная работа 1 базовая (е)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+
+    // e) a^10 за четыре операции
+    double a5 = a4 * a;
+    double a10 = a5 * a5;
+    cout << "a^10 = " << a10 << endl;
+
+    return 0;
+}
+
+__________________________________________________________
+
+
+18 - сам раб 1 прод
+//Самостоятельная работа 1 задча 18 продвинутая
+#include <iostream>
+#include <cmath>
+
+double calculateRelativisticKineticEnergy(double mass, double velocity, double speedOfLight) {
+    double gamma = 1.0 / std::sqrt(1.0 - (velocity * velocity) / (speedOfLight * speedOfLight));
+    double kineticEnergy = mass * speedOfLight * speedOfLight * (gamma - 1.0);
+    return kineticEnergy;
+}
+
+double calculateNonRelativisticKineticEnergy(double mass, double velocity) {
+    double kineticEnergy = (mass * velocity * velocity) / 2.0;
+    return kineticEnergy;
+}
+
+int main() {
+    // Данные для вычислений
+    double electronMass = 9.1e-31; // Масса электрона в кг
+    double speedOfLight = 2.998e8; // Скорость света в м/с
+
+    // Ввод скорости электрона
+    double velocity;
+    std::cout << "Введите скорость электрона (в м/с): ";
+    std::cin >> velocity;
+
+    // Вычисление кинетической энергии
+    double relativisticEnergy = calculateRelativisticKineticEnergy(electronMass, velocity, speedOfLight);
+    double nonRelativisticEnergy = calculateNonRelativisticKineticEnergy(electronMass, velocity);
+
+    // Вывод результатов
+    std::cout << "Релятивистская кинетическая энергия: " << relativisticEnergy << " Дж" << std::endl;
+    std::cout << "Нерелятивистская кинетическая энергия: " << nonRelativisticEnergy << " Дж" << std::endl;
+
+    return 0;
+}
+
+__________________________________________________________
+
+
+5.50
+//Самостоятельная работа 3 базовая задача 5.50
+#include <iostream>
+
+int main() {
+    double a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
+    double sum, average;
+    
+    std::cout << "Enter 10 numbers: ";
+    std::cin >> a1 >> a2 >> a3 >> a4 >> a5 >> a6 >> a7 >> a8 >> a9 >> a10;
+    
+    sum = a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10;
+    average = sum / 10;
+    
+    std::cout << "Average: " << average << std::endl;
+    
+    return 0;
+}
+------
+ 5.51
+//Самостоятельная работа 3 базовая задача 5.51
+#include <iostream>
+
+int main() {
+    int n;
+    double sum = 0, average;
+    
+    std::cout << "Enter the count of numbers: ";
+    std::cin >> n;
+    
+    std::cout << "Enter " << n << " numbers: ";
+    for (int i = 0; i < n; ++i) {
+        double num;
+        std::cin >> num;
+        sum += num;
+    }
+    
+    average = sum / n;
+    
+    std::cout << "Average: " << average << std::endl;
+    
+    return 0;
+}
+-------------
+ 5.52
+//Самостоятельная работа 3 базовая задача 5.52
+#include <iostream>
+
+int main() {
+    const int numStudents = 20;
+    int marks[numStudents];
+    double sum = 0, average;
+    
+    std::cout << "Enter the marks of " << numStudents << " students: ";
+    for (int i = 0; i < numStudents; ++i) {
+        std::cin >> marks[i];
+        sum += marks[i];
+    }
+    
+    average = sum / numStudents;
+    
+    std::cout << "Average mark: " << average << std::endl;
+    
+    return 0;
+}
+----------------
+ 5.53
+//Самостоятельная работа 3 базовая задача 5.53
+#include <iostream>
+
+int main() {
+    const int numSubjects = 10;
+    int marks[numSubjects];
+    double sum = 0, average;
+    
+    std::cout << "Enter the marks of the student for " << numSubjects << " subjects: ";
+    for (int i = 0; i < numSubjects; ++i) {
+        std::cin >> marks[i];
+        sum += marks[i];
+    }
+    
+    average = sum / numSubjects;
+    
+    std::cout << "Average mark: " << average << std::endl;
+    
+    return 0;
+}
+---------------
+ 5.54
+//Самостоятельная работа 3 базовая задача 5.54
+#include <iostream>
+#include <vector>
+
+float calculateAverageGrade(const std::vector<float>& grades) {
+    float sum = 0.0;
+    int count = grades.size();
+
+    for (int i = 0; i < count; i++) {
+        sum += grades[i];
+    }
+
+    return sum / count;
+}
+
+int main() {
+    std::vector<float> algebraGrades = { 4.5, 3.2, 4.0, 4.8, 3.9, 4.2 };
+    float averageGrade = calculateAverageGrade(algebraGrades);
+
+    std::cout << "Average grade in algebra: " << averageGrade << std::endl;
+
+    return 0;
+}
+--------------
+ 5.55
+//Самостоятельная работа 3 базовая задача 5.55
+#include <iostream>
+#include <vector>
+
+float calculateAverageMass(const std::vector<float>& masses) {
+    float sum = 0.0;
+    int count = masses.size();
+
+    for (int i = 0; i < count; i++) {
+        sum += masses[i];
+    }
+
+    return sum / count;
+}
+
+int main() {
+    std::vector<float> itemMasses = { 2.5, 3.8, 4.2, 2.1, 3.5 };
+    float averageMass = calculateAverageMass(itemMasses);
+
+    std::cout << "Average mass of items: " << averageMass << std::endl;
+
+    return 0;
+}
+---------------
+ w14 - сам раб 3 баз
+
+//Самостоятельная работа 3 базовая задача while14
+#include <iostream>
+
+int main() {
+    int K = 1;
+    float sum = 0;
+
+    while (sum < 4) {
+        sum += 1.0 / K;
+        K++;
+    }
+
+    std::cout << "Largest integer K: " << K - 1 << std::endl;
+    std::cout << "Sum: " << sum << std::endl;
+
+    return 0;
+}
+_________________________________________________________________
+
+10 - сам раб 3 прод
+
+//Самостоятельная работа 3 продвинутая задача 10
+#include <iostream>
+#include <cmath>
+
+int main() {
+    int upperLimit;
+    std::cout << "Enter the upper limit: ";
+    std::cin >> upperLimit;
+
+    double product = 1.0;
+    for (int n = 1; n <= upperLimit; n++) {
+        product *= pow(cos(2 * n + 1), 2);
+    }
+
+    std::cout << "Product: " << product << std::endl;
+
+    return 0;
+}
+____________________________________________________
+
+4 сам раб баз
+2.8 
+
+//Самостоятельная работа 4 базовая задача 2.8
+#include <iostream>
+
+int main() {
+    const int size = 16;
+    float arr[size] = {2.5, 1.8, 3.2, 4.7, 2.1, 5.6, 1.3, 6.7, 2.9, 4.5, 3.7, 1.9, 5.2, 3.4, 2.6, 4.1};
+
+    int maxIndex = 0;
+    int minIndex = 0;
+
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > arr[maxIndex]) {
+            maxIndex = i;
+        }
+        if (arr[i] < arr[minIndex]) {
+            minIndex = i;
+        }
+    }
+
+    std::cout << "Index of the maximum element: " << maxIndex << std::endl;
+    std::cout << "Index of the minimum element: " << minIndex << std::endl;
+
+    return 0;
+}
+
+2.9
+
+//Самостоятельная работа 4 базовая задача 2.9
+#include <iostream>
+#include <vector>
+
+std::vector<int> calculateDifference(const std::vector<int>& arr) {
+    std::vector<int> result;
+    int sum = 0;
+    int size = arr.size();
+
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+
+    int average = sum / size;
+
+    for (int i = 0; i < size; i++) {
+        result.push_back(arr[i] - average);
+    }
+
+    return result;
+}
+
+int main() {
+    std::vector<int> arr = {5, 8, 3, 2, 9, 4, 7, 1, 6, 10, 2, 5, 3, 8, 7};
+    std::vector<int> diffArray = calculateDifference(arr);
+
+    std::cout << "Difference array: ";
+    for (int i = 0; i < diffArray.size(); i++) {
+        std::cout << diffArray[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+ 2.10
+
+//Самостоятельная работа 4 базовая задача 2.10
+#include <iostream>
+
+int main() {
+    const int size = 17;
+    int arr[size] = {5, -8, 3, -2, 9, -4, -7, 1, 6, -10, 2, 5, 3, -8, -7, 11, -6};
+
+    int negativeCount = 0;
+    int negativeSum = 0;
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < 0) {
+            negativeCount++;
+            negativeSum += arr[i];
+        }
+    }
+
+    double negativeAverage = static_cast<double>(negativeSum) / negativeCount;
+
+    int absoluteSum = 0;
+    for (int i = 0; i < size; i++) {
+        if (std::abs(arr[i]) > negativeAverage) {
+            absoluteSum += arr[i];
+        }
+    }
+
+    std::cout << "Sum of elements with absolute value greater than the average of negative elements: " << absoluteSum << std::endl;
+
+    return 0;
+}
+
+ 2.11 
+
+//Самостоятельная работа 4 базовая задача 2.11
+#include <iostream>
+
+int main() {
+    const int size = 14;
+    int arr[size] = {3, -5, 8, -2, 7, -4, 6, 1, -9, 10, 2, -3, 4, -7};
+
+    int positiveEvenCount = 0;
+    int positiveEvenSum = 0;
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > 0 && arr[i] % 2 == 0) {
+            positiveEvenCount++;
+            positiveEvenSum += arr[i];
+        }
+    }
+
+    std::cout << "Count of positive even elements: " << positiveEvenCount << std::endl;
+    std::cout << "Sum of positive even elements: " << positiveEvenSum << std::endl;
+
+    return 0;
+}
+_______________________________________
+10 - сам раб 4 прод
+
+//Самостоятельная работа 4 продвинутая задача 10
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+double calculateCentralMoment(const std::vector<double>& values, const std::vector<double>& probabilities, double mean, int order) {
+    double centralMoment = 0.0;
+    int n = values.size();
+
+    for (int i = 0; i < n; i++) {
+        centralMoment += std::pow((values[i] - mean), order) * probabilities[i];
+    }
+
+    return centralMoment;
+}
+
+int main() {
+    // Ввод порядка момента
+    int order;
+    std::cout << "Введите порядок момента: ";
+    std::cin >> order;
+
+    // Ввод значений случайной величины и соответствующих вероятностей
+    int n;
+    std::cout << "Введите количество значений случайной величины: ";
+    std::cin >> n;
+
+    std::vector<double> values(n);
+    std::vector<double> probabilities(n);
+
+    std::cout << "Введите значения случайной величины и соответствующие вероятности:" << std::endl;
+    for (int i = 0; i < n; i++) {
+        std::cin >> values[i] >> probabilities[i];
+    }
+
+    // Вычисление математического ожидания
+    double mean = 0.0;
+    for (int i = 0; i < n; i++) {
+        mean += values[i] * probabilities[i];
+    }
+
+    // Вычисление центрального момента
+    double centralMoment = calculateCentralMoment(values, probabilities, mean, order);
+
+    // Вывод результата
+    std::cout << "Центральный момент порядка " << order << ": " << centralMoment << std::endl;
+
+    return 0;
+}
+
+
+_______________________________________
+9 - сам раб 5 прод
+
+//Самостоятельная работа продвинутая задача 9
+#include <iostream>
+
+double calculateDotProduct(const double* vector1, const double* vector2, int size) {
+    double dotProduct = 0.0;
+
+    for (int i = 0; i < size; i++) {
+        dotProduct += vector1[i] * vector2[i];
+    }
+
+    return dotProduct;
+}
+
+int main() {
+    // Пример использования функции calculateDotProduct
+
+    // Вектор 1: [1, 2, 3]
+    double vector1[] = {1.0, 2.0, 3.0};
+    int size1 = sizeof(vector1) / sizeof(vector1[0]);
+
+    // Вектор 2: [4, 5, 6]
+    double vector2[] = {4.0, 5.0, 6.0};
+    int size2 = sizeof(vector2) / sizeof(vector2[0]);
+
+    // Вычисление скалярного произведения
+    double dotProduct = calculateDotProduct(vector1, vector2, std::min(size1, size2));
+
+    // Вывод результата
+    std::cout << "Скалярное произведение: " << dotProduct << std::endl;
+
+    return 0;
+}

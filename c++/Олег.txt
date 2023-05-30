@@ -1,0 +1,563 @@
+// Урок 1 базовая c/р B39:
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main() {
+double a, b, c;
+cout << "Enter coefficients a, b, c: ";
+cin >> a >> b >> c;
+
+double discriminant = b * b - 4 * a * c;
+
+if (discriminant < 0) {
+    cout << "No real roots" << endl;
+}
+else {
+    double x1 = (-b - sqrt(discriminant)) / (2 * a);
+    double x2 = (-b + sqrt(discriminant)) / (2 * a);
+
+    if (x1 < x2) {
+        cout << "Roots: " << x1 << ", " << x2 << endl;
+    }
+    else {
+        cout << "Roots: " << x2 << ", " << x1 << endl;
+    }
+}
+return 0;
+}
+
+// Урок 1 базовая с/р B40:
+
+ #include <iostream>
+using namespace std;
+
+int main() {
+double A1, B1, C1, A2, B2, C2, D, x, y;
+
+cout << "Введите коэффициенты системы уравнений:" << endl;
+cout << "A1 = ";
+cin >> A1;
+cout << "B1 = ";
+cin >> B1;
+cout << "C1 = ";
+cin >> C1;
+cout << "A2 = ";
+cin >> A2;
+cout << "B2 = ";
+cin >> B2;
+cout << "C2 = ";
+cin >> C2;
+
+D = A1 * B2 - A2 * B1;
+
+if (D != 0) {
+    x = (C1 * B2 - C2 * B1) / D;
+    y = (A1 * C2 - A2 * C1) / D;
+
+    cout << "Решение системы уравнений:" << endl;
+    cout << "x = " << x << endl;
+    cout << "y = " << y << endl;
+} else {
+    cout << "Система уравнений не имеет единственного решения" << endl;
+}
+
+return 0;
+}
+
+// Урок 1 продвинутая с/р задание 5:
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main() {
+double H, U, g = 9.81; // g - ускорение свободного падения
+cout << "Введите высоту H и скорость U самолета: ";
+cin >> H >> U;
+double T = sqrt(2 * H / g); // вычисляем время полета бомбы
+double S = U * T; // вычисляем подлетное расстояние до объекта
+cout << "Подлетное расстояние до объекта: " << S << endl;
+return 0;
+}
+
+// Урок 2 с/р С11:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+char orientation;
+int command1, command2;
+
+cout << "Enter orientation (N, S, E or W): ";
+cin >> orientation;
+
+cout << "Enter first command (-1, 1 or 2): ";
+cin >> command1;
+
+cout << "Enter second command (-1, 1 or 2): ";
+cin >> command2;
+
+switch (orientation) {
+    case 'N':
+        if (command1 == 1)
+            orientation = 'W';
+        else if (command1 == -1)
+            orientation = 'E';
+        else if (command1 == 2)
+            orientation = 'S';
+        if (command2 == 1)
+            orientation = 'W';
+        else if (command2 == -1)
+            orientation = 'E';
+        else if (command2 == 2)
+            orientation = 'S';
+        break;
+        
+    case 'W':
+        if (command1 == 1)
+            orientation = 'S';
+        else if (command1 == -1)
+            orientation = 'N';
+        else if (command1 == 2)
+            orientation = 'E';
+        if (command2 == 1)
+            orientation = 'S';
+        else if (command2 == -1)
+            orientation = 'N';
+        else if (command2 == 2)
+            orientation = 'E';
+        break;
+        
+    case 'S':
+        if (command1 == 1)
+            orientation = 'E';
+        else if (command1 == -1)
+            orientation = 'W';
+        else if (command1 == 2)
+            orientation = 'N';
+        if (command2 == 1)
+            orientation = 'E';
+        else if (command2 == -1)
+            orientation = 'W';
+        else if (command2 == 2)
+            orientation = 'N';
+        break;
+        
+    case 'E':
+        if (command1 == 1)
+            orientation = 'N';
+        else if (command1 == -1)
+            orientation = 'S';
+        else if (command1 == 2)
+            orientation = 'W';
+        if (command2 == 1)
+            orientation = 'N';
+        else if (command2 == -1)
+            orientation = 'S';
+        else if (command2 == 2)
+            orientation = 'W';
+        break;
+        
+    default:
+        cout << "Invalid orientation!";
+        return 0;
+}
+
+cout << "Final orientation: " << orientation;
+
+return 0;
+}
+
+// Урок 3 базовая c/р F15:
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+double a, result = 1; // объявляем переменные a и result, устанавливаем начальное значение result равным 1
+int n;
+
+cout << "Введите число A: ";
+cin >> a;
+
+cout << "Введите целое число N: ";
+cin >> n;
+
+for (int i = 0; i < n; i++) {
+    result *= a; // умножаем result на a на каждой итерации цикла
+}
+
+cout << a << "^" << n << " = " << result;
+
+return 0;
+}
+
+// Урок 3 базовая с/р F16:
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main() {
+double A;
+int N;
+
+cout << "Введите число A: ";
+cin >> A;
+cout << "Введите число N: ";
+cin >> N;
+
+for (int i = 1; i <= N; i++) {
+    cout << pow(A, i) << endl;
+}
+
+return 0;
+}
+
+// Урок 3 базовая с/р F17:
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main() {
+double A;
+int N;
+cout << "Введите вещественное число A и целое число N: ";
+cin >> A >> N;
+double sum = 0;
+for (int i = 0; i <= N; i++) {
+sum += pow(A, i);
+}
+cout << "Сумма ряда: " << sum << endl;
+return 0;
+}
+
+// Урок 3 базовая с/р F18:
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main() {
+double a;
+int n;
+double sum = 1.0;
+
+cout << "Введите вещественное число A: ";
+cin >> a;
+cout << "Введите целое число N (> 0): ";
+cin >> n;
+
+double a_power = a;
+for (int i = 1; i <= n; i++) {
+    sum += pow(-1.0, i) * a_power;
+    a_power *= a;
+}
+
+cout << "Значение выражения: " << sum << endl;
+
+return 0;
+}
+
+// Урок 3 базовая с/р F19:
+
+#include <iostream>
+using namespace std;
+int main() {
+int N;
+double factorial = 1;
+cout << "Введите целое число N: ";
+cin >> N;
+for (int i = 1; i <= N; i++) {
+factorial *= i;
+}
+cout << "N! = " << factorial << endl;
+return 0;
+}
+
+// Урок 3 базовая с/р F20:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+int N;
+double sum = 0, factorial = 1;
+
+cout << "Введите число N: ";
+cin >> N;
+
+for (int i = 1; i <= N; i++) {
+    factorial *= i; // Вычисляем факториал i
+    sum += factorial; // Добавляем факториал к сумме
+}
+
+cout << "Сумма всех факториалов до N равна " << sum << endl;
+
+return 0;
+}
+
+// Урок 3 базовая с/р W2:
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int A, B;
+    cin >> A >> B;
+    int count = 0; // счетчик отрезков B
+    while (A >= B) { // пока на отрезке A может разместиться отрезок B
+        A -= B; // уменьшаем размер отрезка A на длину отрезка B
+        count++; // увеличиваем счетчик отрезков B
+    }
+    cout << count << endl;
+    return 0;
+}
+
+// Урок 3 базовая с/р W27:
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+int N, F1 = 0, F2 = 1, Fk = 0, K = 0;
+cout << "Enter N: ";
+cin >> N;
+
+while (Fk != N) {
+    Fk = F1 + F2;
+    F1 = F2;
+    F2 = Fk;
+    K++;
+}
+
+cout << "K = " << K << endl;
+
+return 0;
+}
+
+// Урок 4 базовая с/р 3.27:
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int rows, cols, sum = 0;
+cout << "Введите количество строк матрицы: ";
+cin >> rows;
+cout << "Введите количество столбцов матрицы: ";
+cin >> cols;
+int matrix[rows][cols];
+for(int i=0; i<rows; i++)
+{
+for(int j=0; j<cols; j++)
+{
+cout << "Введите элемент (" << i + 1 << ", " << j + 1 << "): ";
+cin >> matrix[i][j];
+if(matrix[i][j] % 2 != 0)
+sum += matrix[i][j];
+}
+}
+cout << "Сумма нечетных элементов матрицы: " << sum;
+return 0;
+}
+
+
+// Урок 4 базовая с/р 3.28:
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int matrix[5][5] = {{1, 2, 3, 4, 5},
+{6, 7, 8, 9, 10},
+{11, 12, 13, 14, 15},
+{16, 17, 18, 19, 20},
+{21, 22, 23, 24, 25}};
+
+cout << "Исходная матрица:" << endl;
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        cout << matrix[i][j] << " ";
+    }
+    cout << endl;
+}
+
+// перестановка строк
+int temp[5];
+for (int i = 0; i < 5; i++)
+{
+    temp[i] = matrix[3][i];
+    matrix[3][i] = matrix[4][i];
+    matrix[4][i] = temp[i];
+}
+
+// вывод измененной матрицы
+cout << "Матрица после перестановки строк 4 и 5:" << endl;
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        cout << matrix[i][j] << " ";
+    }
+    cout << endl;
+}
+
+return 0;
+}
+
+
+// Урок 4 базовая с/р 3.29:
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+int rows, cols;
+cout << "Enter number of rows and columns: ";
+cin >> rows >> cols;
+int matrix[rows][cols];
+for(int i=0; i<rows; i++) {
+    for(int j=0; j<cols; j++) {
+        cout << "Enter element (" << i << "," << j << "): ";
+        cin >> matrix[i][j];
+    }
+}
+
+int min_sum = INT_MAX, min_col;
+for(int j=0; j<cols; j++) {
+    int sum = 0;
+    for(int i=0; i<rows; i++) {
+        sum += matrix[i][j];
+    }
+    if(sum < min_sum) {
+        min_sum = sum;
+        min_col = j;
+    }
+}
+
+cout << "Column " << min_col << " has the smallest sum of " << min_sum << endl;
+
+return 0;
+}
+
+// Урок 4 базовая с/р 3.30:
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, m;
+    cin >> n >> m; // вводим размерность матрицы
+
+    int a[n][m];
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cin >> a[i][j]; // вводим элементы матрицы
+        }
+    }
+
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i][1] >= 0) // обращаемся к второму столбцу и проверяем, больше ли текущий элемент нуля
+        {
+            count++; // увеличиваем переменную count на 1
+        }
+    }
+
+    cout << count << endl; // выводим количество неотрицательных элементов второго столбца матрицы
+
+    return 0;
+}
+
+// Урок 5 базовая с/р 190:
+
+#include <iostream>
+
+using namespace std;
+
+double Procent(double num, double percent) {
+    return num * (percent / 100.0);
+}
+
+int main() {
+    double num = 100.0;
+    double percent = 20.0;
+    double result = Procent(num, percent);
+    cout << percent << "% от " << num << " = " << result << endl;
+    return 0;
+}
+
+// Урок 5 продвинутая с/р 19:
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+// Функция для вычисления параметра a
+double calc_a(double x[], double y[], int n) {
+double sum_x = 0, sum_y = 0, sum_xy = 0, sum_x2 = 0, a;
+for (int i = 0; i < n; i++) {
+sum_x += x[i];
+sum_y += y[i];
+sum_xy += x[i] * y[i];
+sum_x2 += pow(x[i], 2);
+}
+a = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - pow(sum_x, 2));
+return a;
+}
+
+// Функция для вычисления параметра b
+double calc_b(double x[], double y[], int n) {
+double sum_x = 0, sum_y = 0, sum_xy = 0, sum_x2 = 0, b;
+for (int i = 0; i < n; i++) {
+sum_x += x[i];
+sum_y += y[i];
+sum_xy += x[i] * y[i];
+sum_x2 += pow(x[i], 2);
+}
+b = (sum_y - calc_a(x, y, n) * sum_x) / n;
+return b;
+}
+
+int main() {
+int n;
+cout << "Введите количество точек: ";
+cin >> n;
+double x[n], y[n];
+for (int i = 0; i < n; i++) {
+cout << "Введите координату x" << i + 1 << ": ";
+cin >> x[i];
+cout << "Введите координату y" << i + 1 << ": ";
+cin >> y[i];
+}
+double a = calc_a(x, y, n);
+double b = calc_b(x, y, n);
+cout << "Регрессионная модель: f(x) = " << a << "x + " << b << endl;
+return 0;
+}

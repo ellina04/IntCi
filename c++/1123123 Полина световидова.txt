@@ -1,0 +1,420 @@
+// N17 сам раб 1 баз Дано целое число, больше 999. Используя одну операцию деления нацело и одну операцию взятия остатка от деления, найди цифру, соответствующую разряду сотен в записи этого числа. Все входные данные в этом задании являются целыми числами. Все числа, для которых указано количество цифр (двузначное число, трехзначное число и тд), считаются положительными
+#include <iostream>
+
+int main() {
+    int num;
+    std::cout << "Введите число больше 999: ";
+    std::cin >> num;
+
+    int hundreds_digit = (num / 100) % 10;
+    std::cout << "Цифра в разряде сотен: " << hundreds_digit << std::endl;
+
+    return 0;
+}
+
+// самраб 1 прод 12. напиши программу на языке c++ для расчета ускорения тела массой m, которое находится на горизонтальной плоскости и к которому под углом a (к горизонту) приложена сила F0. коэффициент трения тела о плоскость равен u. Предусмотри вариант, когда тело неподвижно (используй тернарный оператор). Воспользуйся тем, что если тело движется, на него вдоль плоскости движения действует равнодействующая сила F = F0 cos(a) -- Ft, где сила трения Ft = umgsin(a). Ускорение тела a ищется из второго закона ньютона F=ma
+```
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    double m, a, u, F0, Ft, F, a_new;
+
+    cout << "Введите массу тела m: ";
+    cin >> m;
+
+    cout << "Введите угол a (в градусах): ";
+    cin >> a;
+    a = a * M_PI / 180.0; // переводим градусы в радианы
+
+    cout << "Введите коэффициент трения u: ";
+    cin >> u;
+
+    cout << "Введите силу F0: ";
+    cin >> F0;
+
+    Ft = u * m * 9.81 * sin(a);
+    F = F0 * cos(a) - Ft;
+
+    a_new = (abs(F) < 0.0001) ? 0.0 : F / m;
+
+    cout << "Ускорение тела: " << a_new << " м/c²" << endl;
+
+    return 0;
+}
+
+//самраб 2 B34 Даны координаты поля шахматной доски х, у (целые числа, лежащие в диапазоне 1-8). Учитывая, что левое нижнее поле доски (1,1) является черным, проверь истинность высказывания "Данное поле является белым" код напиши на c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cout << "Введите координаты поля шахматной доски (x,y): ";
+    cin >> x >> y;
+    if ((x + y) % 2 == 0) {
+        cout << "Данное поле является белым" << endl;
+    } else {
+        cout << "Данное поле является черным" << endl;
+    }
+    return 0;
+}
+//самраб3 баз5.27 Найти написав 3 кода на с++
+б) сумму всех целых чисел от а до 500 (значение а вводится с клавиатуры;
+a ≤ 500); в) сумму всех целых чисел от -10 до в (значение в вводится с клавнатуры;
+b2-10); г) сумму всех целых чисел от а до 6 (значения а и вводятся с клавиатуры;
+b ≥ a).
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int a;
+    cin >> a;
+ 
+    int sum = 0;
+    for (int i = a; i <= 500; i++) {
+        sum += i;
+    }
+ 
+    cout << "Сумма всех целых чисел от " << a << " до 500 равна " << sum << endl;
+    return 0;
+}
+```
+
+б)
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int b, a = -10;
+    cin >> b;
+ 
+    int sum = 0;
+    while (a <= b) {
+        sum += a;
+        a++;
+    }
+ 
+    cout << "Сумма всех целых чисел от -10 до " << b << " равна " << sum << endl;
+    return 0;
+}
+```
+
+г)
+```c++
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+ 
+    int sum = 0;
+    for (int i = a; i <= 6; i++) {
+        sum += i;
+    }
+ 
+    cout << "Сумма всех целых чисел от " << a << " до 6 равна " << sum << endl;
+    return 0;
+}
+```
+Найди написав 4 кода на с++
+a) пронзведение всех целых чисел от 8 до 15; б) пронзведенне всех целых чисел от а до 20 (значение а вводится с клавнату-
+par; 1 S a s 20);
+в) пронзведенне всех целых чисел от 1 до (значение в вводится с клавнату-
+p; 1 s b s 20); г) пронзведенне всех целых чисел от а до б (значення а и 6 вводятся
+с клавнатуры; b 2 а).
+а) Произведение всех целых чисел от 8 до 15:
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+   int prod = 1;
+   for (int i = 8; i <= 15; i++) {
+      prod *= i;
+   }
+   cout << "Произведение всех целых чисел от 8 до 15: " << prod << endl;
+   return 0;
+}
+```
+
+б) Произведение всех целых чисел от a до 20 (значение а вводится с клавиатуры; 1 <= a <= 20):
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+   int a;
+   cout << "Введите значение a (1 <= a <= 20): ";
+   cin >> a;
+
+   int prod = 1;
+   for (int i = a; i <= 20; i++) {
+      prod *= i;
+   }
+
+   cout << "Произведение всех целых чисел от " << a << " до 20: " << prod << endl;
+   return 0;
+}
+```
+
+в) Произведение всех целых чисел от 1 до b (значение b вводится с клавиатуры; 1 <= b <= 20):
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+   int b;
+   cout << "Введите значение b (1 <= b <= 20): ";
+   cin >> b;
+
+   int prod = 1;
+   for (int i = 1; i <= b; i++) {
+      prod *= i;
+   }
+
+   cout << "Произведение всех целых чисел от 1 до " << b << ": " << prod << endl;
+   return 0;
+}
+```
+
+г) Произведение всех целых чисел от a до b (значения а и b вводятся с клавиатуры; b >= a):
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+   int a, b;
+   cout << "Введите значения a и b (b >= a): ";
+   cin >> a >> b;
+
+   int prod = 1;
+   for (int i = a; i <= b; i++) {
+      prod *= i;
+   }
+
+   cout << "Произведение всех целых чисел от " << a << " до " << b << ": " << prod << endl;
+   return 0;
+}
+//5.28 Найти на с++:
+a) пронзведение всех целых чисел от 8 до 15; б) пронзведенне всех целых чисел от а до 20 (значение а вводится с клавнату-
+par; 1 S a s 20);
+в) пронзведенне всех целых чисел от 1 до (значение в вводится с клавнату-
+p; 1 s b s 20); г) пронзведенне всех целых чисел от а до б (значення а и 6 вводятся
+с клавнатуры; b 2 а).
+a) Произведение всех целых чисел от 8 до 15:
+
+#include <iostream>
+
+int main() {
+    int product = 1;
+    for (int i = 8; i <= 15; i++) {
+        product *= i;
+    }
+    std::cout << "Product of integers from 8 to 15: " << product << std::endl;
+    return 0;
+}
+
+
+б) Произведение всех целых чисел от a до 20 (значение a вводится с клавиатуры; 1 <= a <= 20):
+
+#include <iostream>
+
+int main() {
+    int a, product = 1;
+    std::cout << "Enter a value between 1 and 20: ";
+    std::cin >> a;
+    for (int i = a; i <= 20; i++) {
+        product *= i;
+    }
+    std::cout << "Product of integers from " << a << " to 20: " << product << std::endl;
+    return 0;
+}
+
+
+в) Произведение всех целых чисел от 1 до b (значение b вводится с клавиатуры; 1 <= b <= 20):
+
+#include <iostream>
+
+int main() {
+    int b, product = 1;
+    std::cout << "Enter a value between 1 and 20: ";
+    std::cin >> b;
+    for (int i = 1; i <= b; i++) {
+        product *= i;
+    }
+    std::cout << "Product of integers from 1 to " << b << ": " << product << std::endl;
+    return 0;
+}
+
+
+г) Произведение всех целых чисел от a до b (значения a и b вводятся с клавиатуры; b >= a):
+
+#include <iostream>
+
+int main() {
+    int a, b, product = 1;
+    std::cout << "Enter a value for a: ";
+    std::cin >> a;
+    std::cout << "Enter a value for b (must be greater than or equal to a): ";
+    std::cin >> b;
+    for (int i = a; i <= b; i++) {
+        product *= i;
+    }
+    std::cout << "Product of integers from " << a << " to " << b << ": " << product << std::endl;
+    return 0;
+}
+//w20 Напиши код на с++ :
+Дано целое число N (> 0). С помощью операций деления нацело и взл-
+тия остатка от деления определить, имеется ли в записи числа N цифра «2».
+Если имеется, то вывести True, если нет - вывести False.
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    bool hasTwo = false;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    while (n > 0) {
+        if (n % 10 == 2) {
+            hasTwo = true;
+            break;
+        }
+        n /= 10;
+    }
+    if (hasTwo) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
+}
+//самраб 4 баз 8.6 Используя c++ Напечатать полную таблицу сложення в виде:
+1 ÷ 1 = 2
+1 + 2 = 3
+2 + 1 = 3
+2 ÷ 2 = 4
+9 + 9 = 18
+1 ÷ 9 = 10
+2 ÷ 9 = 11
+9 + 1 = 10
+9 ÷ 2 = 11
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 9; i++) {
+        for (int j = 1; j <= 9; j++) {
+            cout << i << " + " << j << " = " << i+j << endl;
+        }
+        cout << i << " ÷ " << i << " = " << i*2 << endl;
+        cout << endl;
+    }
+    cout << "9 + 9 = 18" << endl;
+    cout << "1 ÷ 9 = 10" << endl;
+    cout << "2 ÷ 9 = 11" << endl;
+    cout << "9 + 1 = 10" << endl;
+    cout << "9 ÷ 2 = 11" << endl;
+
+    return 0;
+}
+
+//8.7 1) Напечатать полную таблицу умножения в виде:
+1 x 1 = 1
+1 x 2 = 2
+2 x 1 = 2
+2 × 2 = 4
+9 ÷ 9 = 18
+1 × 9 = 9
+2 x 9 = 18
+9 * 1 = 9
+9 * 2 = 18
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 9; i++) {
+        for (int j = 1; j <= 9; j++) {
+            cout << i << " x " << j << " = " << i*j << endl;
+        }
+        cout << i << " ÷ " << i << " = " << i*i << endl;
+        cout << endl;
+    }
+    cout << "9 x 9 = 81" << endl;
+    cout << "1 x 9 = 9" << endl;
+    cout << "2 x 9 = 18" << endl;
+    cout << "9 x 1 = 9" << endl;
+    cout << "9 ÷ 2 = 41" << endl;
+
+    return 0;
+}
+
+//8.9 Напечатать полную таблицу умножения в виде:
+1 * 1 = 1
+2 × 1 = 2
+1 x 2 = 2
+2 × 2 = 4
+9 x 9 = 81
+9 x 1 = 9
+9 x 2 = 18
+1 * 9 = 9
+2 x 9 = 18
+9 x 9 = 81
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 9; i++) {
+        for (int j = 1; j <= 9; j++) {
+            cout << i << " * " << j << " = " << i*j << endl;
+        }
+        cout << i << " x " << i << " = " << i*i << endl;
+        cout << endl;
+    }
+    cout << "9 x 9 = 81" << endl;
+    cout << "1 x 9 = 9" << endl;
+    cout << "2 x 9 = 18" << endl;
+    cout << "9 x 1 = 9" << endl;
+    cout << "9 x 9 = 81" << endl;
+
+    return 0;
+}
+
+//8.25 Заполни одномерный массив и выведи используя с++ на печать. Найти количество делителей каждого из целых чисел от 120 до 140.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[21];
+    for (int i = 0; i < 21; i++) {
+        arr[i] = 120 + i;
+    }
+
+    for (int i = 0; i < 21; i++) {
+        int count = 0;
+        for (int j = 1; j <= arr[i]; j++) {
+            if (arr[i] % j == 0) {
+                count++;
+            }
+        }
+        cout << "Число " << arr[i] << " имеет " << count << " делителей." << endl;
+    }
+
+    return 0;
+}
