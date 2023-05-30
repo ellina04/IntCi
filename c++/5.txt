@@ -1,0 +1,3154 @@
+УРОК_2~~~~~~~~~~~~~~~~~~~~~
+
+Использовав оператор switch.
+
+Case15.Мастям игральных карт присвоены порядковые номера: 1 ПИКИ, 2- трефы, 3 бубны, 4 червы. Достоинству карт, старших десятки, присвоены номера: 11 - валет, 12 -дама, 13 два целых числа: N - достоинство (6 ≤ N ≤ 14) и М - масть карты король, 14 - туз. Даны (1 ≤ M≤4). Вывести название соответствующей карты вида «шестерка бу- бен>>, <<дама червей», «туз треф» и т. п.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, M;
+    cout << "Введите достоинство карты (от 6 до 14): ";
+    cin >> N;
+    cout << "Введите масть карты (1 - пики, 2 - трефы, 3 - бубны, 4 - червы): ";
+    cin >> M;
+
+    switch (N) {
+        case 6:
+            cout << "шестерка ";
+            break;
+        case 7:
+            cout << "семерка ";
+            break;
+        case 8:
+            cout << "восьмерка ";
+            break;
+        case 9:
+            cout << "девятка ";
+            break;
+        case 10:
+            cout << "десятка ";
+            break;
+        case 11:
+            cout << "валет ";
+            break;
+        case 12:
+            cout << "дама ";
+            break;
+        case 13:
+            cout << "король ";
+            break;
+        case 14:
+            cout << "туз ";
+            break;
+        default:
+            cout << "Достоинство карты должно быть от 6 до 14";
+            return 0;
+    }
+
+    switch (M) {
+        case 1:
+            cout << "пик";
+            break;
+        case 2:
+            cout << "треф";
+            break;
+        case 3:
+            cout << "бубен";
+            break;
+        case 4:
+            cout << "червей";
+            break;
+        default:
+            cout << "Масть карты должна быть от 1 до 4";
+    }
+
+    return 0;
+}
+
+Case16. Дано целое число в диапазоне 20-69, определяющее возраст (в годах). Вывести строку-описание указанного возраста, обеспечив правильное со- гласование числа со словом «год», например: 20 - «двадцать лет», 32 - «тридцать два года», 41- - «сорок один год».
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Введите возраст (от 20 до 69): ";
+    cin >> age;
+
+    int lastDigit = age % 10; // последняя цифра возраста
+    int secondLastDigit = age / 10 % 10; // предпоследняя цифра возраста
+
+    switch (secondLastDigit) {
+        case 2:
+            cout << "двадцать ";
+            break;
+        case 3:
+            cout << "тридцать ";
+            break;
+        case 4:
+            cout << "сорок ";
+            break;
+        case 5:
+            cout << "пятьдесят ";
+            break;
+        case 6:
+            cout << "шестьдесят ";
+            break;
+    }
+
+    switch (lastDigit) {
+        case 1:
+            cout << "один год";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            cout << lastDigit << " года";
+            break;
+        default:
+            cout << lastDigit << " лет";
+    }
+
+    return 0;
+}
+
+Case17. Дано целое число в диапазоне 10-40, определяющее количество учеб- ных заданий по некоторой теме. Вывести строку-описание указанного ко- личества заданий, обеспечив правильное согласование числа со словами «учебное задание», например: 18 «восемнадцать учебных заданий» 23 <<двадцать три учебных задания», 31 - «тридцать одно учебное за- Дание».
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Введите количество учебных заданий (от 10 до 40): ";
+    cin >> num;
+
+    int lastDigit = num % 10; // последняя цифра количества заданий
+    int secondLastDigit = num / 10 % 10; // предпоследняя цифра количества заданий
+
+    switch (secondLastDigit) {
+        case 1:
+            cout << num << " учебных заданий";
+            break;
+        case 2:
+            cout << "двадцать ";
+            break;
+        case 3:
+            cout << "тридцать ";
+            break;
+        case 4:
+            cout << "сорок ";
+            break;
+    }
+
+    switch (lastDigit) {
+        case 1:
+            cout << "одно учебное задание";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            cout << lastDigit << " учебных задания";
+            break;
+        default:
+            cout << lastDigit << " учебных заданий";
+    }
+
+    return 0;
+}
+
+УРОК_3~~~~~~~~~~~~~~~~~~~~~
+
+For27. Дано вещественное число X (|X| < 1) и целое число N (> 0). Найти значение выражения X + 1*X3/(2*3) + 1*3*X5/(2*4*5) + … + 1*3*…*(2*N-1)*X2*N+1/(2*4*…*(2*N)*(2*N+1)).
+
+# include 
+# include 
+# include 
+# include 
+# include 
+ 
+using namespace std;
+ 
+int main ()
+{
+  SetConsoleCP(1251);
+  SetConsoleOutputCP(1251);
+ 
+  double X;
+  cout << "Введите вещественное число X (|X|<1): ";   cin >> X;
+  int N;
+  cout << "Введите целое число N (>0): ";
+  cin >> N;
+  double answer;
+  double z, h; // z - значенатель ; h - числитель 
+  double stepen;
+  z = stepen =1;
+  h = X;
+  answer = X;
+  for(int i=1; i <= N ;i++) {
+    h = h * X * X;              // x^3 / x^5 /x^7   высчитывается степень числа X в числителе
+    stepen = stepen* (2*i-1);   // stepen= 1 / 3 / 15 высчитывается число, на которое умножается h
+    z = z * (i*2+1)*(i*2);      // 6  / 40            высчитывается знаменатель
+    answer += (stepen * h) / z; // (1*x^3)/6
+    z = z / (i*2+1);            // 2   / 8
+  }
+  cout << "answer = " << answer << endl;
+  double y; // переменная для значения arcsin в точке X
+  y = asin(X);
+  cout << "arcsin(X)= " << y << endl;
+ 
+  system ("pause");
+  return 0;
+}
+
+For28. Дано вещественное число X (|X| < 1) и целое число N (> 0). Найти значение выражения 1 + X/2 — 1*X2/(2*4) + 1*3*X3/(2*4*6) -… + (-1)N-1*1*3*…*(2*N-3)*XN/(2*4*…*(2*N)). Полученное число является приближенным значением функции √1 + X .
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    float x;
+    cout<<"X:";
+    cin>>x;
+ 
+    int n;
+    cout<<"N:";
+    cin>>n;
+ 
+    float temp1 = 1, temp2 = 1, rez = 1, pow = 1;
+    int i;
+    for (i = 1; i < n; ++i) {
+        temp1 *= 2 * i - 3;
+        temp2 *= 2 * i;
+        pow *= (-1) * x;
+        rez += temp1 * pow / temp2;
+    }
+    cout<< rez;
+}
+
+For29. Дано целое число N (> 1) и две вещественные точки на числовой оси: A, B (A < B). Отрезок [A, B] разбит на N равных отрезков. Вывести H — длину каждого отрезка, а также набор точек A, A + H, A + 2*H, A + 3*H,…, B, образующий разбиение отрезка [A, B].
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    float a;
+    cout << "A:";
+    cin >> a;
+ 
+    float b;
+    cout << "B:";
+    cin >> b;
+ 
+    float h = (b - a) / n;
+    cout << h;
+ 
+    int i;
+    for (i = 0; i <= n; ++i) {
+        cout << a + i * h<<" ";
+    }
+}
+
+For30. Дано целое число N (> 14) и две вещественные точки на числовой оси: A, B (A < B). Отрезок [A, B] разбит на N равных отрезков. Вывести H — длину каждого отрезка, а также значения функции F(X) = 1 — sin(X) в точках, разбивающих отрезок [A, B]: F(A), F(A + H), F(A + 2*H),…, F(B).
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    float a;
+    cout << "A:";
+    cin >> a;
+ 
+    float b;
+    cout << "B:";
+    cin >> b;
+ 
+    float h = (b - a) / n;
+    cout<<h<<" ";
+ 
+    int i;
+    for (i = 0; i <= n; ++i) {
+        cout<<1 - sin(a + i * h)<<" ";
+    }
+    return 0;
+}
+
+For31. Дано целое число N (> 0). Последовательность вещественных чисел A_K определяется следующим образом: A0 = 2, AK = 2 + 1/AK-1, K = 1, 2, … . Вывести элементы A1, A2, …, AN.
+
+# include
+# include
+# include
+ 
+using namespace std;
+ 
+int main ()
+ 
+{
+  SetConsoleCP(1251);
+  SetConsoleOutputCP(1251);
+ 
+  int N;
+  cout << "Введите целое число N(>0): ";
+  cin >> N;
+  double A = 2;
+  for (int i = 1; i <= N; ++i) {
+   A = 2+1/A;
+   cout << A << " ";
+  }
+  cout << endl;
+  system ("pause");
+  return 0;
+}
+
+For32. Дано целое число N (> 0). Последовательность вещественных чисел A_K определяется следующим образом: A0 = 1, AK = (AK-1 + 1)/K, K = 1, 2, … . Вывести элементы A1, A2, …, AN.
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    float ai = 1;
+    cout<< ai<<" ";
+    int i;
+    for (i = 1; i <= n; ++i) {
+        cout<< i<<" "<< (ai + 1) / i<<" ";
+        ai = (ai + 1) / i;
+    }
+    return 0;
+}
+
+For40. Даны целые числа A и B (A < B). Вывести все целые числа от A до B включительно; при этом число A должно выводиться 1 раз, число A + 1 должно выводиться 2 раза и т. д.
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int a, b;
+    cout<<"A:";
+    cin>>a;
+    cout << "B:";
+    cin >> b;
+ 
+    int i, i2;
+    for (i = 1; i <= b - a + 1; ++i) {
+        for (i2 = 1; i2 <= i; ++i2)
+            cout << a + i - 1 << " ";
+    }
+ 
+    return 0;
+}
+
+While25. Дано целое число N (> 1). Найти первое число Фибоначчи, большее N. (определение чисел Фибоначчи дано в задании While24).
+
+#include <iostream>
+using namespace std;
+ 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    cout << "N:";
+    cin >> n;
+ 
+    int f1 = 1, f2 = 1, f = 0;
+ 
+    while (f < n + 1) {
+        f = f2 + f1;
+        f2 = f1;
+        f1 = f;
+    }
+    cout << f;
+    return 0;
+}
+
+УРОК_4~~~~~~~~~~~~~~~~~~~~~
+
+4.6Элементы матрицы А сделать с помощью генератора случайных чисел. Сделать новую матрицу В в которой удалить с матрицы A ряд, в котором минимальный элемент среди элементов главной диагонали.
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+const int SIZE = 5; // размер матрицы
+
+int main() {
+    srand(time(NULL)); // инициализация генератора случайных чисел
+    int A[SIZE][SIZE]; // исходная матрица
+    int B[SIZE-1][SIZE]; // новая матрица без одного ряда
+    int min_diag = INT_MAX; // минимальный элемент главной диагонали
+
+    // заполнение исходной матрицы случайными числами
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            A[i][j] = rand() % 10;
+            cout << A[i][j] << " ";
+            if (i == j && A[i][j] < min_diag) {
+                min_diag = A[i][j];
+            }
+        }
+        cout << endl;
+    }
+
+    cout << "Минимальный элемент главной диагонали: " << min_diag << endl;
+
+    int row_to_remove = -1; // номер ряда, который нужно удалить
+    for (int i = 0; i < SIZE; i++) {
+        if (A[i][i] == min_diag) {
+            row_to_remove = i;
+            break;
+        }
+    }
+
+    if (row_to_remove == -1) { // если минимальный элемент не найден
+        cout << "Минимальный элемент главной диагонали не найден." << endl;
+        return 0;
+    }
+
+    cout << "Номер ряда, который нужно удалить: " << row_to_remove << endl;
+
+    // заполнение новой матрицы без удаленного ряда
+    int b_row = 0;
+    for (int i = 0; i < SIZE; i++) {
+        if (i != row_to_remove) {
+            for (int j = 0; j < SIZE; j++) {
+                B[b_row][j] = A[i][j];
+            }
+            b_row++;
+        }
+    }
+
+    cout << "Новая матрица:" << endl;
+    for (int i = 0; i < SIZE-1; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << B[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+4.7Составить программу, которая заполняет квадратную матрицу порядка п натуральными числами 1, 2, 3, ..., n2, записывая их в нее "по спирали"
+против часовой стрелки.
+
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5; // размер матрицы
+
+int main() {
+    int A[SIZE][SIZE]; // исходная матрица
+    int num = 1; // текущее заполняемое число
+
+    // заполнение матрицы по спирали против часовой стрелки
+    for (int k = 0; k < SIZE/2; k++) {
+        // верхняя горизонтальная строка
+        for (int j = k; j < SIZE-k-1; j++) {
+            A[k][j] = num++;
+        }
+        // правая вертикальная строка
+        for (int i = k; i < SIZE-k-1; i++) {
+            A[i][SIZE-k-1] = num++;
+        }
+        // нижняя горизонтальная строка
+        for (int j = SIZE-k-1; j > k; j--) {
+            A[SIZE-k-1][j] = num++;
+        }
+        // левая вертикальная строка
+        for (int i = SIZE-k-1; i > k; i--) {
+            A[i][k] = num++;
+        }
+    }
+
+    // заполнение центрального элемента, если размер матрицы нечетный
+    if (SIZE % 2 == 1) {
+        A[SIZE/2][SIZE/2] = num;
+    }
+
+    // вывод матрицы на экран
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+4.8Составить программу, которая заполняет квадратную матрицу порядка п натуральными числами 1, 2, 3, ..., n2, записывая их в нее "по спирали" по часовой стрелке.
+
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5; // размер матрицы
+
+int main() {
+    int A[SIZE][SIZE]; // исходная матрица
+    int num = 1; // текущее заполняемое число
+
+    // заполнение матрицы по спирали по часовой стрелке
+    for (int k = 0; k < SIZE/2; k++) {
+        // верхняя горизонтальная строка
+        for (int j = k; j < SIZE-k-1; j++) {
+            A[k][j+1] = num++;
+        }
+        // нижняя горизонтальная строка
+        for (int j = SIZE-k-1; j > k; j--) {
+            A[SIZE-k-1][j-1] = num++;
+        }
+        // правая вертикальная строка
+        for (int i = k; i < SIZE-k-1; i++) {
+            A[i+1][SIZE-k-1] = num++;
+        }
+        // левая вертикальная строка
+        for (int i = SIZE-k-1; i > k; i--) {
+            A[i-1][k] = num++;
+        }
+    }
+
+    // заполнение центрального элемента, если размер матрицы нечетный
+    if (SIZE % 2 == 1) {
+        A[SIZE/2][SIZE/2] = num;
+    }
+
+    // вывод матрицы на экран
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+4.9Дан двухмерный целочисленный массив A(M,N). Составить массив В из номеров строк этого массива.
+
+#include <iostream>
+using namespace std;
+
+const int M = 5; // количество строк
+const int N = 4; // количество столбцов
+
+int main() {
+    int A[M][N]; // исходный массив
+    int B[M]; // массив номеров строк
+
+    // заполнение исходного массива
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            A[i][j] = i * N + j;
+        }
+    }
+
+    // заполнение массива номеров строк
+    for (int i = 0; i < M; i++) {
+        B[i] = i;
+    }
+
+    // вывод исходного массива на экран
+    cout << "Исходный массив:" << endl;
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    // вывод массива номеров строк на экран
+    cout << "Массив номеров строк:" << endl;
+    for (int i = 0; i < M; i++) {
+        cout << B[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+УРОК_5~~~~~~~~~~~~~~~~~~~~~
+
+Определить значение = max a, 2b max 2a-b, b, где max x, y максимальное из чисел х, у. Задачу решить двумя способами:
+
+1) не используя функцию max; 
+
+#include <iostream>
+ 
+using namespace std;
+int main()
+{
+    double a, b, z;
+    cin >> a >> b;
+    if (a > (2 * b)){
+        z = a;
+    }
+    else {
+        z = (b * 2);
+    }
+    if ((2 * a - b) > b){
+        z *= (2 * a - b);
+    }
+    else {
+        z *= b;
+    }
+    cout << z << endl;
+    system("pause");
+    return 0;
+}
+
+2) определив и использовав функцию max.
+
+#include <iostream>
+using namespace std;
+double max(double x, double y){
+    if (x > y)
+        return x;
+    else
+        return y;
+}
+int main()
+{
+    double a, b;
+    cin >> a >> b;
+    cout << (max(a, (2 * b)) * max((2 * a - b), b)) << endl;
+    system("pause");
+    return 0;
+}
+
+//сам раб1, прод №9
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() 
+{
+	double h, u, s, t;
+	cout « "Введите высоту полета самолета (м): ";
+	cin » h;
+	cout « "Введите скорость самолета (м/с): ";
+	cin » u;
+
+	t = sqrt(2 * h / 9); // вычисляем время полета бомбы
+
+	s = u * t; // вычисляем расстояние до объекта
+
+	cout « "Подлетное расстояние до объекта (м): " « s « endl;
+
+	return 0;
+} 
+
+
+//сам раб 2, Boolean 26
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int x, y;
+	cout « "Введите координаты точки (x, y): ";
+	cin » x » y;
+
+	if (x > 0 && y < 0)
+	{
+		cout « "Точка с координатами (" « x « ", " « y « ") лежит в четвертой координатной четверти" « endl;
+	}
+	else
+	{
+		cout « "Точка с координатами (" « x « ", " « y « ") не лежит в четвертой координатной четверти" « endl;
+	}
+
+	return 0;
+}
+
+
+//сам раб 2, Boolean 27
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	float x, y;
+	cout « "Введите координаты точки (x, y): ";
+	cin » x » y;
+
+	bool is_in_second_quadrant = x < 0 && y > 0;
+	bool is_in_third_quadrant = x < 0 && y < 0;
+
+	if (is_in_second_quadrant || is_in_third_quadrant) 
+	{
+		cout « "Точка с координатами (" « x « ", " « y « ") лежит во второй или третьей координатной четверти" « endl;
+	} 
+	else 
+	{
+		cout « "Точка с координатами (" « x « ", " « y « ") не лежит во второй или третьей координатной четверти" « endl;
+	}
+	return 0;
+}
+
+
+//сам раб 3 баз, №5.7
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	float price = 20.4;
+	for(int i=2;i<=20;i++)
+	{
+		cout«"Cost for "«i«" items is "«i*price«" rubles"«endl;
+	}
+	return 0;
+}
+
+
+//сам раб 3 баз, 5.8
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	cout « "Фунты\tКилограммы" « endl;
+	for(int i=1; i<=10; i++) 
+	{
+		float kg = i*453.0/1000.0;
+		cout « i « "\t" « kg « endl;
+	}
+	return 0;
+} 
+
+//сам раб3 баз, 5.9
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	cout « "Дюймы\tСантиметры" « endl;
+	for(int i=10; i<=22; i++) 
+	{
+		float cm = i*2.54;
+		cout « i « "\t" « cm « endl;
+	}
+	return 0;
+} 
+
+
+//сам раб 3 баз, 5.10
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	float rate;
+	cout « "Введите курс доллара: ";
+	cin » rate;
+	cout « "Доллары\tРубли" « endl;
+	for(int i=1; i<=20; i++) 
+	{
+		float rub = i*rate;
+		cout « i « "\t" « rub « endl;
+	}
+	return 0;
+}
+
+
+//сам раб 3 баз, 5.11
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+	int main() 
+{
+	const float R = 6350; // радиус Земли
+	for(int h=1; h<=10; h++) 
+	{
+		float d = sqrt(pow(R+h,2)-pow(R,2)); // расстояние до горизонта
+		cout « "Высота: " « h « " км, расстояние до горизонта: " « d « " км" « endl;
+	}
+	return 0;
+}
+
+
+//сам раб 3 баз, 5.12
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	const float Ro = 1.29; 
+	const float h_step = 100; 
+	for(int h=0; h<=1000; h+=h_step) 
+	{
+		float p = Ro * exp(-h/8200.0); 
+		cout « "Высота: " « h « " м, плотность: " « p « " кг/м^3" « endl;
+	}
+	return 0;
+}
+
+
+//сам раб 3 баз, 5.13
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	for (int i = 1; i <= 10; i++) 
+	{
+		cout « i « " x 7 = " « i * 7 « endl;
+	}
+	return 0;
+}
+
+//сам раб 3 баз, While23
+
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b) 	
+{
+	if (b == 0)
+	{  
+	return a;
+	}
+	return gcd(b, a % b); 
+}
+
+int main() 
+{
+	int a, b;
+	cout « "Введите два положительных целых числа: ";
+	cin » a » b;
+	cout « "НОД(" « a « ", " « b « ") = " « gcd(a, b) « endl;
+	return 0;
+}
+
+
+//сам раб 3 прод, №1
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() 
+{
+	double x;
+	const int n = 10; 
+	double sum = 0;
+	cout « "Введите значение аргумента x: ";
+	cin » x;
+	for (int m = 0; m <= n; m++) 
+	{
+		sum += pow(-1, m) * pow(x, 2*m) / tgamma(2*m + 1);
+	}
+	cout « "Значение косинуса: " « sum « endl;
+	return 0;
+}
+
+//сам раб 4 баз, 8.1б
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	const int n = 10;
+	for (int i = 1; i <= n; i++) 
+	{
+		for (int j = 1; j <= n; j++) 
+		{
+			cout « j « " ";
+		}
+		cout « endl;
+	}
+	return 0;
+}
+
+//сам раб 4 баз, 8.1в
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	const int n = 4;
+	const int m = 10;
+	for (int i = 0; i < n; i++) 
+	{
+		for (int j = 1; j <= m; j++)
+		{
+			cout « i * 10 + j + 40 « " ";
+		}
+		cout « endl;
+	}
+	return 0;
+}
+
+
+//сам раб 4 баз 8.2а
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	const int n = 5;
+	for (int i = 1; i <= n; i++) 
+	{
+		for (int j = 1; j <= i; j++) 
+		{
+			cout « "5 ";
+		}
+		cout « endl;
+	}
+	return 0;
+}
+
+
+//сам раб 4 баз, 8.2б
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	const int n = 5;
+	for (int i = n; i >= 1; i--) 
+	{
+		for (int j = 1; j <= i; j++) 
+		{
+			cout « "1 ";
+		}
+		cout « endl;
+	}
+	return 0;
+}
+
+//сам раб 4 прод №1
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() 
+{
+	int a1, a2, a3;
+	cout « "Enter components of vector a: ";
+	cin » a1 » a2 » a3;
+	double mod = sqrt(pow(a1, 2) + pow(a2, 2) + pow(a3, 2));
+	cout « "The modulus of vector a is: " « mod « endl;
+	return 0;
+}
+
+//сам раб 5 прод 1
+#include <iostream>
+
+int fibonacci(int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
+
+int main() {
+    int n;
+    std::cout << "Введите порядковый номер числа в последовательности Фибоначчи: ";
+    std::cin >> n;
+    std::cout << "Число Фибоначчи с порядковым номером " << n << " равно " << fibonacci(n) << std::endl;
+    return 0;
+}
+
+//In18,занятие1
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a;
+    cin >> a;
+    a = a % 10000 / 1000;
+    cout << a;
+
+}
+
+
+//14,задание1
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    float a;
+    int f;
+    float m;
+    cout << "Vvedite ugol";
+    cin >> a;
+    cout << "Vvesite massu";
+    cin >> m;
+    cout << "Esli telo skolzit po ploskosti, to napishite 1, a esli v sostoyanii pokoya, to 2";
+    cin >> f;
+    if (f == 1)
+    {
+        cout << m * 9.8 * cos(a) * tan(a);
+    }
+    else
+    {
+        cout << m * 9.8 * sin(a);
+    }
+}
+
+//if6, занятие2
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int a, b;
+    cin >> a;
+    cin >> b;
+    if (a >= b)
+    {
+        cout << a;
+    }
+   
+    else
+    {
+        cout << b;
+    }
+}
+
+
+
+
+//if7,занятие2
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int a, b;
+    cin >> a;
+    cin >> b;
+    if (a > b)
+    {
+        cout << '1';
+    }
+   
+    if (a == b)
+    {
+        cout << "ravni";
+    }
+    if (a < b)
+    {
+        cout << '2';
+    }
+}
+
+
+//if8, занятие2
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int a, b;
+    cin >> a;
+    cin >> b;
+    if (a >= b)
+    {
+        cout << a << b;
+    }
+   
+    else
+    {
+        cout << b << a;
+    }
+}
+
+
+//5.30(г), занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int i;
+	int a;
+	int b;
+	int c = 0;
+	cin >> a;
+	cin >> b;
+	if (b >= a)
+	{
+		for (i = a; i < b + 1; i++)
+		{
+			c += i * i;
+		}
+		cout << c;
+	}
+	else
+	{
+		cout << "Error";
+	}
+}
+
+
+//5.31, занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int i;
+	int a;
+
+	int c = 0;
+	cin >> a;
+	int b = a * 2;
+
+
+	for (i = a; i < b + 1; i++)
+	{
+		c += i * i;
+	}
+	cout << c;
+}
+	
+
+//5.32, занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	float n;
+	cin >> n;
+	float i;
+	float c = 0;
+
+
+
+	for (i = 1.0; i <= n; i++)
+	{
+		c += 1.0 / i;
+	}
+	cout << c;
+}
+	
+
+//5.33, занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	float n;
+	cin >> n;
+	float i;
+	float c = 0;
+
+
+
+	for (i = 2.0; i <= 10; i++)
+	{
+		c += i / (i + 1);
+	}
+	cout << c;
+}
+	
+
+//5.34, занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	float n = 1;
+	int j;
+	float i;
+	float c = 0;
+
+
+
+	for (i = 0; i <= 8; i++)
+	{
+	
+		c += 1 / n;
+		n = 1;
+		for (j = 1; j <= i; j++)
+		{
+			n *= 3;
+
+		}
+	
+	}
+	cout << c;
+}
+	
+
+//W18, занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	int i = 0;
+	int count = 0;
+	int t = 0;
+	int a = 10;
+	while (n != 0)
+	{
+		t += n % 10;
+		n = n / 10;
+		count += 1;
+		
+	}
+	cout << count << endl << t;
+}
+
+//6, занятие3
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	float x, i , j;
+	cin >> x;
+	int n = 10;
+	float t = 0;
+	float f = 1;
+	for (i = 0; i <= n; i++)
+	{
+		t += pow(-1, i)* pow(x, 2 * n) / f;
+		f = 1;
+		for (j = 0; j <= i; j++) 
+		{
+			f *= 2 * i + 1;
+		}
+	}
+	cout << t;
+}
+
+//8.30, занятие4
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int a, b, i, j;
+	cin >> a >> b;
+	int c = b + 1 - a;
+	int count = 0;
+	int d = 0;
+	int v = 0;
+	for (i = a; i <= b; i++)
+	{
+		if (count > d)
+		{
+			d = count;
+			v = i;
+
+		}
+		count = 0;
+		for (j = 1; j <= i; j++)
+		{
+
+			if (i % j == 0) 
+			{
+				count += 1;
+			}
+		}
+	}
+	cout << v -1;
+}
+
+//6, занятие4
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	int i;
+	int a[10];
+
+	for (i = 0; i < 10; i++)
+	{
+		cin >> a[i];
+		
+	}
+	int m = a[0];
+	for (i = 0; i < 9; i++)
+	{
+		if (a[i] < a[i + 1])
+		{
+			m = a[i+1];
+		}
+
+	}
+	cout << m;
+
+}
+
+
+//Занятие 5, задание 185
+#include <iostream>
+using namespace std;
+
+double calculateVolume(double radius, double height) // определение функции для вычисления объема цилиндра
+{
+    const double pi = 3.14159; // константа для значения числа Пи
+    double volume = pi * radius * radius * height;
+
+    return volume; // возвращает вычисленный объем цилиндра
+}
+
+int main()
+{
+    double radius, height;
+    cout << "Введите радиус цилиндра: ";
+    cin >> radius;
+    cout << "Введите высоту цилиндра: ";
+    cin >> height;
+
+    double volume = calculateVolume(radius, height); // вызов функции вычисления объема цилиндра
+    cout << "Объем цилиндра: " << volume << endl;
+
+    return 0;
+}
+
+//Занятие5, задание 186
+#include <iostream>
+using namespace std;
+//объявление функции поиска максимального из двух чисел
+int max(int a, int b);
+int main(void)
+{ int m, k, i;
+cout << "i = "; cin >> i;
+cout << "k = "; cin >> k;
+m = max(i, k); // вызов функции
+cout << "max = " << m << endl;
+}
+//определение функции поиска максимального из двух чисел
+int max(int a, int b)
+{ if (a > b) return a;
+else return b;
+}
+
+	
+	//Занятие5, задание 187
+#include <iostream>
+using namespace std;
+//объявление функции поиска максимального из двух чисел
+int max(int a, int b);
+int main(void)
+{ int  k, i;
+char m;
+cout << "i = "; cin >> i;
+cout << "k = "; cin >> k;
+m = max(i, k); // вызов функции
+cout << "max = " << m << endl;
+}
+//определение функции поиска максимального из двух чисел
+int max(int a, int b)
+{ if (a > b) return '>';
+  if (b> a) return ',';
+  else return '=';
+}
+
+
+//Занятие5, задание 188
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double r1, r2, r_total;
+    char conn_type;
+
+    cout << "Введите сопротивление первого резистора: ";
+    cin >> r1;
+    cout << "Введите сопротивление второго резистора: ";
+    cin >> r2;
+    cout << "Введите тип соединения (S для последовательного, P для параллельного): ";
+    cin >> conn_type;
+
+    if (conn_type == 'S' || conn_type == 's') {
+        r_total = r1 + r2;
+    }
+    else if (conn_type == 'P' || conn_type == 'p') {
+        r_total = (r1 * r2) / (r1 + r2);
+    }
+    else {
+        cout << "Ошибка: неверно указан тип соединения." << endl;
+        return -1;
+    }
+
+    cout << "Сопротивление цепи: " << r_total << endl;
+
+    return 0;
+}
+//Самостоятельная работа 1 базовый уровень, integer 28
+
+#include <iostream>
+using namespace std;
+
+int main() {
+int k, n;
+cout << "Enter the day of the year (1-365): ";
+cin >> k;
+cout << "Enter the day of the week for January 1st (1-7): ";
+cin >> n;
+
+int dayOfWeek = ((k - 1) + (n - 1)) % 7 + 1;
+cout << "The day of the week for day " << k << " is " << dayOfWeek << endl;
+
+return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.72 (б)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+double distance = 10; // initial distance
+double totalDistance = 10; // total distance for the first day
+for (int i = 2; i <= 7; i++) {
+distance *= 1.1; // increase distance by 10%
+totalDistance += distance; // add distance to total distance
+}
+cout<< "The total distance covered in the first 7 days is "<< totalDistance<< " km."<< endl;
+return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.73 (а)
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+	double area = 100.0;
+	double yield = 20.0;
+	double increase_area = 1.05;
+	double increase_yield = 1.02;
+	
+	
+	for (int i = 2; i <= 8; i++) {
+		area *= (increase_area);
+		yield *= (increase_yield);
+		double total_yield = yield * area;
+		cout << "Year " << i << " yield: " << total_yield << " centners" << endl;
+	}
+	
+	return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.73 (б)
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	double area = 100; // initial area
+	double yield = 20; // initial yield
+	for (int i = 1; i <= 7; i++) {
+		area *= 1.05; // increase area by 5%
+		yield *= 1.02; // increase yield by 2%
+		if (i >= 4) { // output results for years 4 to 7
+			cout << "Year " << i << ": Area = " << round(area) << " hectares, Yield = " << round(yield) << " centners/hectare" << endl;
+		}
+	}
+	return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.73 (в)
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+	double area = 100.0;
+	double yield = 20.0;
+	double increase_area = 1.05;
+	double increase_yield = 1.02;
+	double total_for_6_year = 2000;
+	
+	for (int i = 2; i <= 6; i++) {
+		area *= (increase_area);
+		yield *= (increase_yield);
+		double total_yield = yield * area;
+		total_for_6_year += total_yield;
+	}
+	cout << "Yield for 6 years: " << total_for_6_year << endl;
+	return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+// № 5.74
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+	const double pi = 3.14159265358979323846;
+	const double thickness = 0.5;                      
+	const double inner_radius = 5.0;                                
+	const int num_spheres = 12;                 
+	
+	double total_volume = 0.0;
+	double radius = inner_radius;
+	
+	for (int i = 0; i < num_spheres; i++) {
+		double volume = (4.0 / 3.0) * pi * pow(radius, 3);
+		total_volume += volume;
+		radius += thickness;
+		}
+	
+	double total_volume_liters = total_volume / 1000.0;                    
+	
+	cout << "Total volume of " << num_spheres << " spheres: " << total_volume_liters << " liters" << endl;
+	
+	return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+// 5.75
+#include <iostream>
+int main(){
+	int a = 2;
+	int sum = 0;
+	for(int i = 1; i < 10; i++){
+		a *= 2;
+		sum += a;
+	}
+	std::cout << sum;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.76
+#include <iostream>
+
+int main(){
+	int a;
+	std::cout << "Enter a: ";
+	std::cin >> a;
+	int a_n = a;
+	int n;
+	std::cout << "Enter n: ";
+	std::cin >> n;
+	if (n <= 1){
+		std::cout << "Error";
+		return 0;
+	}
+	std::cout << a << " in 1 = " << a_n << std::endl;
+	for(int i = 2; i <= n; i++){ 
+		a_n *= a;
+		std::cout << a << " in " << i << " = " << a_n << std::endl;	
+	}
+	return(0);
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.86
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int n;
+	cout << "Enter a natural number: ";
+	cin >> n;
+	
+	int sum = 0;
+	for (int i = 1; i <= 2 * n - 1; i += 2) {
+		sum += i;
+		}
+	
+	cout << "The square of " << n << " is " << sum << endl;
+
+return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//№ 5.87
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int n = 10; 
+	int sum = 0;
+	
+	for (int i = 1; i <= n; i++) {
+		int term = 0; 
+		for (int j = 1; j <= 2 * i - 1; j += 2) {
+			term += j; 
+		}
+		sum += term;
+	}
+	
+	cout << "The sum of squares from 1 to " << n << " is " << sum << endl;
+
+	return 0;
+}
+
+
+//Самостоятельная работа 3 базовый вариант
+//W8
+#include <iostream>
+
+int main() {
+	int n;
+	std::cout << "Enter a positive integer: ";
+	std::cin >> n;
+	
+	int k = 0;
+	while (k * k <= n) {
+		k++;
+	}
+	k--;
+	
+	std::cout << "The largest integer K such that K^2 <= N is: " << k << std::endl;
+
+	return 0;
+}
+
+
+//Самостоятельная работа 4 базовый вариант
+//№ 3.3
+#include <iostream>
+using namespace std;
+
+int main() {
+	int arr[5][6] = {{1, -2, 3, -4, 5, -6},
+	{7, -8, 9, -10, 11, -12},
+	{13, -14, 15, -16, 17, -18},
+	{19, -20, 21, -22, 23, -24},
+	{25, -26, 27, -28, 29, -30}};
+	double mean[6] = {0}; // array to store mean of each column
+	int count[6] = {0}; // array to store count of positive elements in each column
+	
+	// loop through each column
+	for (int j = 0; j < 6; j++) {
+	// loop through each row in the column
+	for (int i = 0; i < 5; i++) {
+		if (arr[i][j] > 0) {
+			mean[j] += arr[i][j];
+			count[j]++;
+		}
+	}
+		if (count[j] > 0) {
+		mean[j] /= count[j];
+		}
+	}
+		
+		// print the mean of each column
+		for (int j = 0; j < 6; j++) {
+		cout << "Mean of column " << j+1 << ": " << mean[j] << endl;
+		}
+
+return 0;
+}
+
+
+//Самостоятельная работа 4 базовый вариант
+//№ 3.4
+#include <iostream>
+using namespace std;
+
+int main() {
+	const int n = 5;
+	double a[n][n] = {{1, 2, 3, 4, 5},
+	{6, 7, 8, 9, 10},
+	{11, 12, 13, 14, 15},
+	{16, 17, 18, 19, 20},
+	{21, 22, 23, 24, 25}};
+	double min = a[0][n-1]; // initialize min with the first element on the secondary diagonal
+	for (int i = 1; i < n; i++) {
+		if (a[i][n-i-1] < min) {
+		min = a[i][n-i-1];
+		}
+	}
+cout << "The smallest element on the secondary diagonal is " << min << endl;
+return 0;
+}
+
+
+//Самостоятельная работа 4 базовый вариант
+//№ 3.5
+
+
+//Самостоятельная работа 4 базовый вариант
+//№ 3.6
+#include <iostream>
+using namespace std;
+
+int main() {
+	const int ROWS = 4;
+	const int COLS = 3;
+	int A[ROWS][COLS] = {{8, 7, 3}, {4, 5, 6}, {7, 5, 9}, {1, 5, 9}};
+	
+	cout << "Array befor sorted: " << endl;
+	for (int i = 0; i < ROWS; i++ ) {
+		for(int j = 0; j < COLS; j++){
+			cout << A[i][j] << " ";
+		}
+		cout << endl;
+	}
+	
+	int maxIndex1 = 0;
+	int maxIndex3 = 0;
+	for (int i = 1; i < ROWS; i++) {
+		if (A[i][0] > A[maxIndex1][0]) {
+			maxIndex1 = i;
+		}
+		if (A[i][2] > A[maxIndex3][2]) {
+			maxIndex3 = i;
+		}
+	}
+	
+	int temp = A[maxIndex1][0];
+	A[maxIndex1][0] = A[maxIndex3][2];
+	A[maxIndex3][2] = temp;
+	
+	cout << "Array after sorted: " << endl;
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			cout << A[i][j] << " ";
+		}
+		cout << endl;
+	}
+	
+	return 0;
+}
+
+
+//Самостоятельная работа 4 продвинутый вариант
+//№ 16
+
+
+//Самостоятельная работа 5 продвинутый вариант
+//№ 15
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+
+double derivative(double coeffs[], int n, double x) {
+	double result = 0;
+	for (int i = 1; i < n; i++) {
+		result += i * coeffs[i] * pow(x, i-1);
+	}
+	return result;
+}
+
+int main() {
+	int n;
+	cout << "Enter the degree of the polynomial: ";
+	cin >> n;
+	
+	double coeffs[n];
+	cout << "Enter the coefficients of the polynomial: ";
+	for (int i = 0; i < n; i++) {
+		cin >> coeffs[i];
+	}
+	
+	double x;
+	cout << "Enter the value of x for which to compute the derivative: ";
+	cin >> x;
+	
+	double result = derivative(coeffs, n, x);
+	cout << "The value of the derivative at x = " << x << " is " << result << endl;
+	
+	return 0;
+}
+
+Сам раб 1 базовый(41л)
+
+#include <iostream>
+using namespace std;
+int main() {
+    float a;
+    cin >> a ;
+    float a2 = a * a;
+    float a4 = a2 * a2;
+    float a8 = a4 * a4;
+    float a16 = a8 * a8;
+    float a32 = a16 * a16;
+    float a64 = a32 * a32;
+    cout << a64;
+    return 0;
+}
+
+
+
+Сам раб 1 базовый(42a)
+
+#include <iostream>
+using namespace std;
+int main() {
+    float a;
+    cin >> a;
+    float a2= a * a;
+    float a3 = a2 * a;
+    float a5 = a * a * a * a * a;
+    float a10 = a5 * a5;
+    cout << a3 << "," << a5;
+}
+
+
+Сам раб 1 базовый(42б)
+
+#include <iostream>
+using namespace std;
+int main() {
+    float a;
+    cin >> a;
+    float a2 = a * a;
+    float a4 = a2 * a2;
+    float a5 = a * a * a * a * a;
+    float a10 = a5 * a5;
+    float a20 = a10 * a10;
+    cout << a4 << "," << a20;
+    return 0;
+}
+
+Сам раб 1 базовый(42в)
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    float a;
+    cin >> a;
+    float a2 = a * a;
+    float a3 = a2 * a;
+    float a4 = a2 * a2;
+    float a5 = a4 * a;
+    float a13 = a5 * a5 * a3;
+    cout << a5 << "," << a13;
+    return 0;
+}
+
+
+Сам раб 1 продвинутый(20)
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double n, p, p1, q, res;
+    cout << "Введите количество подводных лодок n: ";
+    cin >> n;
+    cout << "Введите вероятность попадания торпеды в авианосец p: ";
+    cin >> p;
+    cout << "Введите вероятность затопления демаскированной подводной лодки кораблями охранения p1: ";
+    cin >> p1;
+
+    q = (1 - p) * (1 - p1);
+    res = p * (1 - p1) * ((1 - pow(q, n)) / (1 - q));
+
+    cout << "Вероятность затопления авианосца и ухода подводных лодок без потерь равна: " << res << endl;
+
+    return 0;
+}
+
+
+сам раб 2(if24)
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+double func(double x){
+    if (x > 0) {
+        return 2 - sin(x);
+    } else {
+        return 6 - x;
+    }
+}
+int main() {
+    double x = 2.5;
+    cin >> x; 
+    double result = func(x); 
+    cout << "f(" << x << ") = " << result << endl; 
+    return 0;
+
+
+
+
+сам раб 2(if25)
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x;
+    cout << "Enter integer x: ";
+    cin >> x;
+
+    int f;
+    if (x < -2 || x > 2) {
+        f = 2 * x;
+    } else {
+        f = 3 * x;
+    }
+
+    cout << "f(x) = " << f << endl;
+    return 0;
+}
+
+
+
+сам раб 2(if26)
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+double f(double x) {
+    if (x <= 0) {
+        return -x;
+    } else if (x < 2) {
+        return pow(x, 2);
+    } else {
+        return 4;
+    }
+}
+int main() {
+    double x;
+    cout << "Enter a real number: ";
+    cin >> x;
+    cout << "f(" << x << ") = " << f(x) << endl;
+    return 0;
+}
+
+
+
+сам работа 3 базовый(5.56в)
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Введите количество чисел n: ";
+    cin >> n;
+    int a[n];
+    cout << "Введите " << n << " чисел: ";
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    cout << "Суммы соседних чисел:\n";
+    for (int i = 0; i < n-1; i++) {
+        cout << a[i] + a[i+1] << " ";
+    }
+    return 0;
+}
+
+
+
+
+сам работа 3 базовый(5.56г)
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;  
+    cout << "Please input n";
+    cin >> n;        
+    int arr[n];       
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];   
+        if (i % 2 == 0) {  
+            sum += arr[i];
+        } else {
+            sum -= arr[i];
+        }
+    }
+    cout << sum << endl;  
+    return 0;   
+}
+
+
+сам работа 3 базовый(w12)
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, sum = 0, k = 0;
+    cout << "Enter an integer N (>1):";
+    cin >> N;
+
+    while (sum <= N) {
+        k++;
+        sum += k;
+    }
+    cout << "The largest integer K: " << k-1 << endl;
+    cout << "The sum of the numbers from 1 to K: " << sum-k << endl;
+    return 0;
+}
+
+
+сам работа 3 продвинутая(12)
+
+НЕТ ЗАДАЧИ В УЧЕБНИКЕ
+
+
+сам работа 4 базовый(2.16)
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    float arr[12];
+    int i, max_index = 0, min_index = 0, count = 0;
+    for (i = 0; i < 12; i++) {
+        cout << "Input " << i+1 << "st Element: ";
+        cin >> arr[i];
+    }
+    for (i = 1; i < 12; i++) {
+        if (arr[max_index] < arr[i]) {
+            max_index = i;
+        } else if (arr[min_index] > arr[i]) {
+            min_index = i;
+        }
+    }
+    count = abs(max_index - min_index) - 1;
+    cout << "Maximum element: " << arr[max_index] << endl;
+    cout << "Minimum element: " << arr[min_index] << endl;
+    cout << "The number of elements between the maximum and minimum:" << count << endl;
+    return 0;
+}
+
+сам работа 4 базовый(2.17)
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int arr[15], neg_count = 0, zero_count = 0, pos_prod = 1;
+    // ввод элементов массива с клавиатуры
+    cout << "Enter 15 integers:" << endl;
+    for(int i = 0; i < 15; i++) {
+        cin >> arr[i];
+    }
+    // вывод массива на экран
+    cout << "Array:";
+    for(int i = 0; i < 15; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    // подсчет количества отрицательных и нулевых элементов
+    for(int i = 0; i < 15; i++) {
+        if(arr[i] < 0) {
+            neg_count++;
+        } else if(arr[i] == 0) {
+            zero_count++;
+        }
+    }
+    // вычисление произведения положительных элементов
+    for(int i = 0; i < 15; i++) {
+        if(arr[i] > 0) {
+            pos_prod *= arr[i];
+        }
+    }
+    // вывод результатов на экран
+    cout << "The number of negative elements: " << neg_count << endl;
+    cout << "Number of zero elements: " << zero_count << endl;
+    cout << "The product of positive elements: " << pos_prod << endl;
+    return 0;
+}
+
+
+сам работа 4 базовый(2.18)
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int arr[12];
+    cout << "Insert 12 elements of array: ";
+    for(int i=0; i<12; i++) {
+        cin >> arr[i];
+    }
+    int min_val = arr[0], max_val = arr[0]; // Первое значение массива является минимальным и максимальным
+    for(int i=1; i<12; i++) { // Проходим по остальным элементам массива
+        if(arr[i] < min_val) min_val = arr[i]; // Если значение элемента меньше, чем минимальное значение, то присваиваем его минимальному значению
+        if(arr[i] > max_val) max_val = arr[i]; // Если значение элемента больше, чем максимальное значение, то присваиваем его максимальному значению
+    }
+    cout << "Minimum value: " << min_val << endl;
+    cout << "Maximum value: " << max_val << endl;
+    return 0;
+}
+
+
+сам работа 4 базовый(2.19)
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int arr[19];
+    for (int i = 0; i < 19; i++) {
+        cout << "Enter element " << i << ": ";
+        cin >> arr[i];
+    }
+    int sum = 0;
+    bool negative_found = false;
+    for (int i = 0; i < 19; i++) {
+        if (arr[i] < 0) {
+            negative_found = true;
+            break;
+        }
+        sum += arr[i];
+    }
+    if (negative_found) {
+        cout << "The sum of the elements before the first negative element is: " << sum << endl;
+    } else {
+        cout << "There are no negative elements in the array" << endl;
+    }
+    return 0;
+}
+
+
+сам работа 4 продвинутый(12)
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    double x, result; // используем double, чтобы сохранить точность вычислений
+    char answer;
+    do {
+        cout << "Enter the degree of the polynomial: ";
+        cin >> n;
+        double A[n+1];
+        cout << "Enter the coefficients of the polynomial (starting from the highest):";
+        for (int i = n; i >= 0; i--) {
+            cin >> A[i];
+        }
+        cout << "Enter an argument: ";
+        cin >> x;
+        result = 0;
+        for (int i = n; i >= 0; i--) {
+            result = result * x + A[i];
+        }
+        cout << "The value of the polynomial is : " << result << endl;
+        cout << "Would you like to continue working? (y/n): ";
+        cin >> answer;
+    } while (answer == 'y' || answer == 'Y');
+    return 0;
+}
+
+
+сам работа 5 продвинутый(11)
+
+
+#include <iostream>
+using namespace std;
+// Функция вычисления определителя матрицы
+double determinant(double matrix[][2]) {
+    return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+}
+int main() {
+    double matrix[2][2];
+    cout << "Enter the values of the 2x2 matrix:\n";
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+    cout << "\n The original matrix:\n";
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << matrix[i][j] << "\t";
+        }
+        cout << endl;
+    }
+    double det = determinant(matrix);
+    cout << " Matrix determinant: " << det << endl;
+    return 0;
+}
+6.17
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+    
+    int n = 1;
+    double sum = 0;
+    
+    while (sum <= a) {
+        sum += 1.0/n;
+        n++;
+    }
+    
+    for (int i = 1; i < n; i++) {
+        cout << i << " ";
+    }
+    
+    return 0;
+}
+
+// Пример работы программы:
+// Введите вещественное число a: 2.5
+// 1 2 3 4 5 6
+
+
+
+
+
+
+
+
+
+
+6.18
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+
+    double sum = 0;
+    int n = 1;
+    while (sum <= a)
+    {
+        sum += 1.0 / n;
+        n++;
+    }
+
+    cout << "Наименьшее n: " << n << endl;
+    cout << "Числа от 1 до n-1: ";
+    for (int i = 1; i < n; i++)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+F3
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a, b;
+    cout << "Введите два целых числа (А и В, где 4 <= B): ";
+    cin >> a >> b;
+
+    int count = 0;
+    cout << "Целые числа между А и В в порядке убывания: ";
+    for (int i = b - 1; i > a; i--)
+    {
+        cout << i << " ";
+        count++;
+    }
+    cout << endl;
+
+    cout << "Количество этих чисел: " << count << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+F4
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float price;
+    cout << "Введите цену 1 кг конфет: ";
+    cin >> price;
+
+    cout << "Стоимость 1 кг конфет: " << price << endl;
+    for (int i = 2; i <= 10; i++)
+    {
+        cout << "Стоимость " << i << " кг конфет: " << price * i << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+F5
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float price;
+    cout << "Введите цену 1 кг конфет: ";
+    cin >> price;
+
+    cout << "Стоимость 0.1 кг конфет: " << price * 0.1 << endl;
+    cout << "Стоимость 0.2 кг конфет: " << price * 0.2 << endl;
+    cout << "Стоимость 0.3 кг конфет: " << price * 0.3 << endl;
+    cout << "Стоимость 0.4 кг конфет: " << price * 0.4 << endl;
+    cout << "Стоимость 0.5 кг конфет: " << price * 0.5 << endl;
+    cout << "Стоимость 0.6 кг конфет: " << price * 0.6 << endl;
+    cout << "Стоимость 0.7 кг конфет: " << price * 0.7 << endl;
+    cout << "Стоимость 0.8 кг конфет: " << price * 0.8 << endl;
+    cout << "Стоимость 0.9 кг конфет: " << price * 0.9 << endl;
+    cout << "Стоимость 1 кг конфет: " << price << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+W4
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N;
+    cout << "Введите целое число N: ";
+    cin >> N;
+
+    bool isPowerOfThree = true;
+    while (N > 1)
+    {
+        if (N % 3 != 0)
+        {
+            isPowerOfThree = false;
+            break;
+        }
+        N /= 3;
+    }
+
+    if (isPowerOfThree)
+        cout << "True" << endl;
+    else
+        cout << "False" << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+W29
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    double e;
+    cout << "Введите вещественное число e: ";
+    cin >> e;
+
+    double A1 = 1, A2 = 2;
+    double Ak = A2 + 2 / (4 * A2 - 3); // вычисляем третий элемент
+    int k = 3; // номер третьего элемента
+
+    while (abs(Ak - A2) >= e) // пока выполняется условие
+    {
+        A1 = A2;
+        A2 = Ak;
+        k++;
+        Ak = A2 + 2 / (4 * A2 - 3);
+    }
+
+    cout << "Номер K: " << k << endl;
+    cout << "A(k-1): " << A2 << endl;
+    cout << "A(k): " << Ak << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+Prod 3 
+#20
+
+#include <iostream>
+#include <cmath>
+#include <random>
+
+using namespace std;
+
+double f(double x, double y) // функция, определяющая тело
+{
+    if (y <= x * x && y <= 1 && x * x + y * y >= 0) // условие на поверхности тела
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    const double exactValue = 88.0 / 105.0; // точное значение объема
+    const int N = 1000000; // количество испытаний
+    double V = 0; // оценка объема
+
+    random_device rd; // генератор случайных чисел
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(-1, 1); // равномерное распределение на [-1, 1]
+
+    for (int i = 0; i < N; i++)
+    {
+        double x = dis(gen);
+        double y = dis(gen);
+        V += f(x, y);
+    }
+
+    V *= 4.0 / N; // множитель для перехода от квадрата [-1, 1]x[-1, 1] к кругу с радиусом 1
+    cout << "Оценка объема: " << V << endl;
+    cout << "Точное значение: " << exactValue << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+8.5 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for(int i=1; i<=9; i++) {
+        for(int j=1; j<=9; j++) {
+            cout << i << " + " << j << " = " << i+j << endl;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+3.19
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[7][7] = { {1,2,3,4,5,6,7},
+                      {2,3,4,5,6,7,8},
+                      {3,4,5,6,7,8,9},
+                      {4,5,6,7,8,9,10},
+                      {5,6,7,8,9,10,11},
+                      {6,7,8,9,10,11,12},
+                      {7,8,9,10,11,12,13} };
+    int minSum = INT_MAX; // начальное значение минимальной суммы
+    int minIndex = -1; // индекс строки с минимальной суммой
+    for(int i=0; i<7; i++) {
+        int sum = 0;
+        for(int j=0; j<7; j++) {
+            sum += arr[i][j];
+        }
+        if(sum < minSum) {
+            minSum = sum;
+            minIndex = i;
+        }
+    }
+    cout << "Строка с наименьшей суммой элементов: ";
+    for(int j=0; j<7; j++) {
+        cout << arr[minIndex][j] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+3.20
+
+Решение:
+
+Мы можем использовать двойной цикл для прохода по всем элементам матрицы. Затем мы проверяем, является ли элемент в первом столбце положительным, и если да, то умножаем его на текущее значение произведения.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[6][8] = { {1,-2,3,-4,5,-6,7,-8},
+                      {2,-3,4,-5,6,-7,8,-9},
+                      {3,-4,5,-6,7,-8,9,-10},
+                      {4,-5,6,-7,8,-9,10,-11},
+                      {5,-6,7,-8,9,-10,11,-12},
+                      {6,-7,8,-9,10,-11,12,-13} };
+    int prod = 1; // начальное значение произведения
+    for(int i=0; i<6; i++) {
+        if(arr[i][0] > 0) {
+            prod *= arr[i][0];
+        }
+    }
+    cout << "Произведение положительных элементов первого столбца: " << prod << endl;
+    return 0;
+}
+
+Результат:
+
+Произведение положительных элементов первого столбца: 120
+
+
+
+
+
+
+
+
+
+3.21
+
+Решение:
+
+Мы можем использовать двойной цикл для прохода по всем элементам матрицы. Затем мы будем добавлять каждый элемент в соответствующую переменную суммы столбца.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[4][6] = { {1,2,3,4,5,6},
+                      {2,3,4,5,6,7},
+                      {3,4,5,6,7,8},
+                      {4,5,6,7,8,9} };
+    int sum[6] = {0}; // массив для хранения сумм столбцов
+    for(int i=0; i<4; i++) {
+        for(int j=0; j<6; j++) {
+            sum[j] += arr[i][j];
+        }
+    }
+    for(int j=0; j<6; j++) {
+        cout << "Сумма столбца " << j+1 << ": " << sum[j] << endl;
+    }
+    return 0;
+}
+
+Результат:
+
+Сумма столбца 1: 10
+Сумма столбца 2: 14
+Сумма столбца 3: 18
+Сумма столбца 4: 22
+Сумма столбца 5: 26
+Сумма столбца 6: 30
+
+
+
+
+
+
+
+
+
+
+3.22
+
+Решение:
+
+Мы можем использовать двойной цикл для прохода по всем элементам матрицы. Затем мы будем добавлять каждый элемент в соответствующую переменную суммы строки и сравнивать ее с текущим минимальным значением.
+
+#include <iostream>
+#include <climits> // для использования константы INT_MAX
+using namespace std;
+
+int main() {
+    int arr[5][10] = { {1,2,3,4,5,6,7,8,9,10},
+                       {2,3,4,5,6,7,8,9,10,11},
+                       {3,4,5,6,7,8,9,10,11,12},
+                       {4,5,6,7,8,9,10,11,12,13},
+                       {5,6,7,8,9,10,11,12,13,14} };
+    int min_sum = INT_MAX; // начальное значение минимальной суммы
+    for(int i=0; i<5; i++) {
+        int sum = 0; // переменная для хранения суммы строки
+        for(int j=0; j<10; j++) {
+            sum += arr[i][j];
+        }
+        if(sum < min_sum) {
+            min_sum = sum;
+        }
+    }
+    cout << "Минимальная сумма строк: " << min_sum << endl;
+    return 0;
+}
+
+Результат:
+
+Минимальная сумма строк: 55
+
+Сам. раб. 1 базовый
+№41
+ж)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите число a: ";
+    cin >> a;
+
+    double a2 = a * a;
+    double a4 = a2 * a2;
+    double a8 = a4 * a4;
+    double a12 = a8 * a4;
+    double a13 = a12 * a;
+
+    cout << "a^13 = " << a13 << endl;
+
+    return 0;
+}
+з)
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double a;
+    cin >> a;
+
+    double b = a * a;
+    double c = b * b;
+    double d = c * c;
+    double e = d * c;
+    double f = e * b;
+
+    cout << f << endl;
+
+    return 0;
+}
+и)
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите число a: ";
+    cin >> a;
+
+    double a2 = a * a;
+    double a4 = a2 * a2;
+    double a8 = a4 * a4;
+    double a16 = a8 * a8;
+    double a20 = a16 * a4;
+    double a21 = a20 * a;
+
+    cout << "a^21 = " << a21 << endl;
+
+    return 0;
+}
+к)
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a;
+    cout << "Введите вещественное число a: ";
+    cin >> a;
+    double a14 = a * a * a * a * a * a * a * a * a * a * a * a * a * a;
+    double a28 = a14 * a14;
+    cout << "a^28 = " << a28 << endl;
+    return 0;
+}
+Сам. раб. 1 прод.
+№19
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double N, t, G;
+    cout << "Введите начальное количество ядер N: ";
+    cin >> N;
+    cout << "Введите период полураспада Г: ";
+    cin >> G;
+    cout << "Введите время t: ";
+    cin >> t;
+
+    double D = N * (1 - exp(-t * log(2) / G));
+    cout << "Число распавшихся ядер: " << D << endl;
+
+    char choice;
+    cout << "Вычислить значение D в процентном отношении к начальному количеству ядер N? (y/n): ";
+    cin >> choice;
+
+    if (choice == 'y' || choice == 'Y') {
+        double percent = D / N * 100;
+        cout << "Значение D в процентах: " << percent << "%" << endl;
+    }
+
+    return 0;
+}
+Сам. раб. 2
+№IF21
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+
+    if (x == 0 && y == 0) {
+        cout << 0 << endl;
+    } else if (x == 0 || y == 0) {
+        cout << (x == 0 ? 1 : 2) << endl;
+    } else {
+        cout << 3 << endl;
+    }
+
+    return 0;
+}
+№IF22
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+
+    if (x == 0 && y == 0) {
+        cout << 0 << endl;
+    } else if (x == 0 || y == 0) {
+        cout << (x == 0 ? 1 : 2) << endl;
+    } else {
+        cout << 3 << endl;
+    }
+
+    return 0;
+}
+№IF23
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int x, y;
+    cin >> x >> y;
+
+    if (x == 0 && y == 0) {
+        cout << 0 << endl;
+    } else if (x == 0 || y == 0) {
+        cout << (x == 0 ? 1 : 2) << endl;
+    } else {
+        cout << 3 << endl;
+    }
+
+    return 0;
+}
+Сам. раб. 3 баз.
+№5.56 (а и б в одном)
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int sum_abs = 0;
+    int prod_abs = 1;
+    for (int i = 0; i < n; i++) {
+        int a;
+        cin >> a;
+        sum_abs += abs(a);
+        prod_abs *= abs(a);
+    }
+    cout << sum_abs << endl;
+    cout << prod_abs << endl;
+    return 0;
+}
+№W13
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int A;
+    cout << "Введите число A (>1): ";
+    cin >> A;
+
+    int K = 1;
+    double sum = 1.0; // начальное значение суммы
+    while (sum <= A) {
+        K++;
+        sum += 1.0 / K;
+    }
+
+    cout << "Наименьшее число K: " << K << endl;
+    cout << "Сумма 1 + 1/2 + ... + 1/K: " << sum << endl;
+
+    return 0;
+}
+Сам. раб. 3 прод.
+№11
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int A;
+    cout << "Введите число A (>1): ";
+    cin >> A;
+
+    int K = 1;
+    double sum = 1.0; // начальное значение суммы
+    while (sum <= A) {
+        K++;
+        sum += 1.0 / K;
+    }
+
+    cout << "Наименьшее число K: " << K << endl;
+    cout << "Сумма 1 + 1/2 + ... + 1/K: " << sum << endl;
+
+    return 0;
+}
+Сам. раб. 4 баз.
+№2.12
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    double arr[12];
+    std::cout << "Введите 12 элементов массива:\n";
+    for (int i = 0; i < 12; i++) {
+        std::cin >> arr[i];
+    }
+
+    std::sort(arr, arr + 12, std::greater<double>());
+
+    std::cout << "Массив в порядке убывания:\n";
+    for (int i = 0; i < 12; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << "\n";
+
+    double sum = arr[0] + arr[11];
+    std::cout << "Сумма максимального и минимального элементов: " << sum << "\n";
+
+    return 0;
+}
+№2.13
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main()
+{
+    int arr[15]; // объявление массива на 15 элементов
+    int max_val = INT_MIN; // начальное максимальное значение
+    int min_val = INT_MAX; // начальное минимальное значение
+
+    // Запрос пользователю 15 целочисленных элементов массива
+    cout << "Введите 15 целочисленных элементов массива:" << endl;
+    for (int i = 0; i < 15; i++) {
+        cin >> arr[i];
+
+        // Обновление максимального и минимального значения
+        if (arr[i] > max_val) {
+            max_val = arr[i];
+        }
+        if (arr[i] < min_val) {
+            min_val = arr[i];
+        }
+    }
+
+    // Вычисление суммы и разности максимального и минимального значений
+    int sum = max_val + min_val;
+    int diff = max_val - min_val;
+
+    // Вывод результата
+    cout << "Сумма максимального и минимального значений: " << sum << endl;
+    cout << "Разность максимального и минимального значений: " << diff << endl;
+
+    return 0;
+}
+№2.14
+#include <iostream>
+using namespace std;
+
+const int arrSize = 17; // Размер массива
+
+int main() 
+{
+    int arr[arrSize]; // Объявление массива
+    int sum = 0; // Переменная для хранения суммы нечетных элементов
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        if (arr[i] % 3 == 0) { // Если элемент кратен 3
+            for (int j = 0; j < arrSize; j++) { // Находим сумму нечетных элементов
+                if (arr[j] % 2 != 0) {
+                    sum += arr[j];
+                }
+            }
+            arr[i] = sum; // Заменяем элемент
+        }
+        sum = 0; // Обнуляем счетчик суммы нечетных элементов для следующей итерации
+    }
+
+    // Вывод измененного массива на экран
+    cout << "\nИзмененный массив:\n";
+    for (int i = 0; i < arrSize; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
+№2.15
+#include <iostream>
+using namespace std;
+
+const int arrSize = 5; // Размер массива
+
+int main() 
+{
+    double arr[arrSize]; // Объявление массива
+    double sum = 0; // Переменная для хранения суммы элементов массива
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        sum += arr[i]; // Добавляем текущий элемент к общей сумме
+    }
+
+    double mean = sum / arrSize; // Вычисляем среднее значение
+
+    // Вывод результатов на экран
+    cout << "Сумма элементов массива: " << sum << endl;
+    cout << "Среднее значение: " << mean << endl;
+
+    return 0;
+}
+Сам. раб. 4 прод.
+№11
+#include <iostream>
+using namespace std;
+
+const int arrSize = 5; // Размер массива
+
+int main() 
+{
+    double arr[arrSize]; // Объявление массива
+    double sum = 0; // Переменная для хранения суммы элементов массива
+
+    // Ввод элементов массива
+    for (int i = 0; i < arrSize; i++) {
+        cout << "Введите элемент " << i + 1 << " массива: ";
+        cin >> arr[i];
+        sum += arr[i]; // Добавляем текущий элемент к общей сумме
+    }
+
+    double mean = sum / arrSize; // Вычисляем среднее значение
+
+    // Вывод результатов на экран
+    cout << "Сумма элементов массива: " << sum << endl;
+    cout << "Среднее значение: " << mean << endl;
+
+    return 0;
+}
+Сам. раб. 5 прод.
+#include <iostream>
+#include <cmath> // для использования функции acos()
+using namespace std;
+
+const int vecSize = 3; // Размерность вектора (количество компонент)
+
+double dotProduct(double vec1[], double vec2[]);
+double vectorLength(double vec[]);
+double angleBetweenVectors(double vec1[], double vec2[]);
+
+int main() 
+{
+    double vector1[vecSize], vector2[vecSize];
+
+    // Ввод элементов первого вектора
+    cout << "Введите элементы первого вектора:\n";
+    for (int i = 0; i < vecSize; i++) {
+        cout << "Введите элемент " << i + 1 << ": ";
+        cin >> vector1[i];
+    }
+
+    // Ввод элементов второго вектора
+    cout << "\nВведите элементы второго вектора:\n";
+    for (int i = 0; i < vecSize; i++) {
+        cout << "Введите элемент " << i + 1 << ": ";
+        cin >> vector2[i];
+    }
+
+    // Вычисление угла между векторам через скалярное произведение и длины векторов
+    double angle = angleBetweenVectors(vector1, vector2);
+
+    // Вывод результата на экран
+    cout << "\nУгол между векторами: " << angle << " радиан" << endl;
+
+    return 0;
+}
+
+/**
+ * Вычисление скалярного произведения векторов
+ */
+double dotProduct(double vec1[], double vec2[]) {
+    double result = 0;
+    for (int i = 0; i < vecSize; i++) {
+        result += vec1[i] * vec2[i];
+    }
+    return result;
+}
+
+/**
+ * Вычисление длины вектора
+ */
+double vectorLength(double vec[]) {
+    double sum = 0;
+    for (int i = 0; i < vecSize; i++) {
+        sum += vec[i] * vec[i];
+    }
+    return sqrt(sum);
+}
+
+/**
+ * Вычисление угла между двумя векторами
+ */
+double angleBetweenVectors(double vec1[], double vec2[]) {
+    double dotProd = dotProduct(vec1, vec2);
+    double vec1Len = vectorLength(vec1);
+    double vec2Len = vectorLength(vec2);
+    double cosAngle = dotProd / (vec1Len * vec2Len);
+    return acos(cosAngle);
+}
+
+
